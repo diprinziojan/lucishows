@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luci Shows</title>
+  <style>
+    /* --- Estilos generales --- */
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #ff004c, #6a0032);
+      color: #fff;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 480px;
+      margin: auto;
+      padding: 50px 20px;
+    }
+
+    /* --- Avatar circular --- */
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 4px solid #ff66b2;
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0 0 25px rgba(255, 0, 76, 0.9);
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 20px rgba(255,0,76,0.7); }
+      to { box-shadow: 0 0 40px rgba(255,102,178,1); }
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 30px;
+      color: #fff0f5;
+      text-shadow: 0 0 10px #ff66b2;
+    }
+
+    /* --- Botones --- */
+    .link {
+      display: block;
+      padding: 18px;
+      margin: 20px 0;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 20px;
+      letter-spacing: 1px;
+      color: white;
+      background: linear-gradient(135deg, #ff66b2, #ff99cc); /* mismo color rosa para ambos */
+      box-shadow: 0 4px 12px rgba(255,255,255,0.5); /* sombra blanca */
+      transition: all 0.3s ease;
+    }
+
+    /* Hover unificado para ambos */
+    .link:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 6px 20px rgba(255,255,255,0.7); /* sombra blanca más intensa */
+      color: white;
+    }
+
+    /* OnlyFans animado (pulso/parpadeo) */
+    .onlyfans {
+      animation: pulseOnlyFans 1.8s infinite;
+      position: relative;
+    }
+
+    @keyframes pulseOnlyFans {
+      0% { transform: scale(1); box-shadow: 0 0 15px rgba(255,255,255,0.7); }
+      50% { transform: scale(1.08); box-shadow: 0 0 40px rgba(255,255,255,1); }
+      100% { transform: scale(1); box-shadow: 0 0 15px rgba(255,255,255,0.7); }
+    }
+
+    /* Telegram estático, mismo color y sombra blanca */
+    .telegram {
+      /* sin animación, mantiene color rosa y sombra blanca */
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #ffd6e8;
+    }
+
+    /* --- Modal +18 --- */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: linear-gradient(135deg, #ff004c, #6a0032);
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 380px;
+      box-shadow: 0 0 30px rgba(255,0,76,0.8);
+      animation: bounceIn 0.6s ease;
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.7); opacity: 0; }
+      60% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+
+    .modal-content h2 {
+      margin-bottom: 15px;
+      color: #fff0f5;
+      text-shadow: 0 0 10px #ff66b2;
+      font-size: 26px;
+    }
+
+    .modal-content p {
+      font-size: 16px;
+      margin-bottom: 25px;
+      color: #ffe6f0;
+    }
+
+    .modal-button {
+      display: inline-block;
+      padding: 14px 24px;
+      margin: 10px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .accept {
+      background: #ff1a75;
+      color: white;
+      box-shadow: 0 0 15px rgba(255,0,100,0.8);
+    }
+
+    .accept:hover { background: #e6005c; }
+
+    .cancel {
+      background: #444;
+      color: white;
+    }
+
+    .cancel:hover { background: #666; }
+
+    /* --- Emoji candado latido --- */
+    .lock-heart {
+      display: inline-block;
+      font-size: 40px;
+      margin-bottom: 20px;
+      animation: heartbeat 1s infinite;
+    }
+
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      25% { transform: scale(1.2); }
+      50% { transform: scale(1); }
+      75% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="tu-foto.jpg" alt="Luci Shows" class="avatar">
+    <h1>✨ Luci Shows ✨</h1>
+
+    <!-- Botones -->
+    <a href="#" class="link onlyfans" onclick="openModal()">🔥 Contenido Exclusivo Aquí 🔥</a>
+    <a href="https://t.me/tuusuario" class="link telegram">💬 Chatea conmigo en secreto</a>
+
+    <div class="footer">© 2025 Luci Shows</div>
+  </div>
+
+  <!-- Modal +18 -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <div class="lock-heart">🔒❤️</div>
+      <h2>🔞 Aviso +18</h2>
+      <p>Este enlace contiene <strong>contenido adulto muy caliente</strong>.<br>Haz clic en “Continuar” solo si eres mayor de edad.</p>
+      <a class="modal-button accept" href="https://onlyfans.com/xxxx">✅ Continuar</a>
+      <span class="modal-button cancel" onclick="closeModal()">❌ Cancelar</span>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById("modal").style.display = "flex";
+    }
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+  </script>
+</body>
+</html>
