@@ -29,7 +29,7 @@ export function Intro() {
               <p key={key}>
                 {t.rich(key, {
                   highlight: (chunks) => (
-                    <span className="text-brand-ink font-semibold">
+                    <span className="text-brand-cta font-semibold">
                       {chunks}
                     </span>
                   ),

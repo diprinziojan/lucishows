@@ -20,7 +20,7 @@ export function Footer({ hideCta = false }: { hideCta?: boolean } = {}) {
       <div className="bg-gradient-to-r from-brand-bg via-brand-cta to-brand-bg-dark">
         <div className="max-w-4xl mx-auto px-6 py-14 text-center">
           <motion.h2
-            className="font-heading text-3xl md:text-4xl text-brand-text mb-3 tracking-wide"
+            className="font-heading text-3xl md:text-4xl text-white mb-3 tracking-wide"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -29,7 +29,7 @@ export function Footer({ hideCta = false }: { hideCta?: boolean } = {}) {
             {t('ctaHeading')}
           </motion.h2>
           <motion.p
-            className="font-body text-brand-text-muted text-lg mb-8 max-w-xl mx-auto"
+            className="font-body text-white/80 text-lg mb-8 max-w-xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
