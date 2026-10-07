@@ -26,6 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'metadata' });
 
   return {
+    metadataBase: new URL('https://lucianalopez.es'),
     title: t('title'),
     description: t('description'),
     keywords: ["digital marketing agency", "influencer marketing", "social media management", "Luciana", "marketing digital"],
@@ -40,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: t('title'),
       description: t('description'),
-      url: "https://lucishows.com",
+      url: "https://lucianalopez.es",
       siteName: "Luciana",
       images: [{ url: "/images/hero.jpg", width: 1200, height: 630 }],
       type: "website",
