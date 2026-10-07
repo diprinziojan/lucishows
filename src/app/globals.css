@@ -1,0 +1,443 @@
+@import "tailwindcss";
+
+/* ============================================
+   TAILWIND v4 THEME — Brand Design Tokens
+   ============================================ */
+@theme inline {
+  --color-brand-bg: #FEE7ED;
+  --color-brand-bg-light: #FFF5F8;
+  --color-brand-bg-dark: #FCD5E0;
+  --color-brand-cta: #FB96BC;
+  --color-brand-cta-hover: #F97BAA;
+  --color-brand-cta-dark: #E8739E;
+  --color-brand-text: #1A1A1A;
+  --color-brand-text-muted: #6B5B63;
+  --color-brand-text-light: #FFFFFF;
+  --color-brand-highlight: #FB96BC;
+  --color-brand-highlight-bg: rgba(251, 150, 188, 0.25);
+  --color-brand-card: #FFFFFF;
+  --color-brand-card-border: rgba(251, 150, 188, 0.2);
+
+  --font-heading: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-body: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-script: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --animate-marquee: marquee 15s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 15s linear infinite;
+  --animate-marquee-stats: marquee 20s linear infinite;
+  --animate-marquee-about: marquee 35s linear infinite;
+  --animate-marquee-about-reverse: marquee-reverse 35s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes marquee-reverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0%); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 12px rgba(251,150,188,0.2); }
+    50% { box-shadow: 0 0 24px rgba(251,150,188,0.35); }
+  }
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  --animate-gradient-shift: gradient-shift 8s ease infinite;
+}
+
+/* ============================================
+   BODY — White pure background
+   ============================================ */
+body {
+  background: #FFFFFF;
+  color: #1A1A1A;
+  font-family: var(--font-body);
+}
+
+/* ============================================
+   HERO GRADIENT — white top → pink bottom
+   ============================================ */
+.hero-gradient {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 55%, #FEE7ED 80%, #FCD5E0 100%);
+}
+
+/* ============================================
+   GLOSSY PINK CTA BUTTON
+   ============================================ */
+.glossy-cta-wrapper {
+  position: relative;
+  display: inline-block;
+  padding: 3px;
+  border-radius: 100px;
+  background: linear-gradient(
+    180deg,
+    rgba(251, 150, 188, 0.2) 0%,
+    rgba(251, 150, 188, 0.06) 100%
+  );
+}
+
+.glossy-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 32px;
+  border-radius: 100px;
+  background: linear-gradient(
+    180deg,
+    #fdaaca 0%,
+    #FB96BC 40%,
+    #f78cb5 70%,
+    #FB96BC 100%
+  );
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.35),
+    inset 0 -2px 4px rgba(200, 80, 130, 0.15),
+    0 4px 14px rgba(251, 150, 188, 0.3),
+    0 1px 3px rgba(0, 0, 0, 0.06);
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  border: none;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.glossy-cta::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 20%;
+  right: 20%;
+  height: 38%;
+  border-radius: 100px 100px 50% 50%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  pointer-events: none;
+}
+
+.glossy-cta:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.4),
+    inset 0 -2px 4px rgba(200, 80, 130, 0.2),
+    0 8px 24px rgba(251, 150, 188, 0.35),
+    0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.glossy-cta:active {
+  transform: translateY(0px);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.25),
+    inset 0 -1px 3px rgba(200, 80, 130, 0.2),
+    0 2px 8px rgba(251, 150, 188, 0.3);
+}
+
+.glossy-cta .cta-arrow {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.glossy-cta:hover .cta-arrow {
+  transform: translateX(4px);
+}
+
+/* Smaller variant for navbar */
+.glossy-cta-sm {
+  padding: 5px 14px;
+  font-size: 8px;
+  letter-spacing: 0.8px;
+}
+@media (min-width: 640px) {
+  .glossy-cta-sm {
+    padding: 7px 18px;
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+}
+
+/* Card variant — compact for pricing cards (needs !important to override base media queries) */
+.glossy-cta-card-wrapper {
+  padding: 3px !important;
+}
+.glossy-cta-card {
+  padding: 12px 28px !important;
+  font-size: 11px !important;
+  letter-spacing: 1.2px !important;
+  white-space: nowrap !important;
+}
+@media (min-width: 640px) {
+  .glossy-cta-card {
+    padding: 14px 36px !important;
+    font-size: 13px !important;
+    letter-spacing: 1.5px !important;
+  }
+}
+@media (min-width: 1024px) {
+  .glossy-cta-card {
+    padding: 16px 44px !important;
+    font-size: 14px !important;
+    letter-spacing: 1.8px !important;
+  }
+}
+
+/* Full width variant — all layers stretch to fill container without overflow */
+.glossy-cta-full {
+  width: 100%;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+/* ============================================
+   GRADIENT ANIMATED BUTTON
+   ============================================ */
+.glossy-cta-gradient {
+  background: linear-gradient(
+    270deg,
+    #FB96BC,
+    #f484ac,
+    #E8739E,
+    #FB96BC
+  );
+  background-size: 300% 300%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* Desktop CTA scale-up */
+@media (min-width: 640px) {
+  .glossy-cta {
+    padding: 14px 44px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    gap: 10px;
+  }
+}
+@media (min-width: 1024px) {
+  .glossy-cta {
+    padding: 16px 48px;
+    font-size: 15px;
+    gap: 10px;
+  }
+}
+
+/* ============================================
+   MARQUEE / INFINITE SCROLL CAROUSEL
+   ============================================ */
+.marquee-container {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+/* ============================================
+   TEXT HIGHLIGHT (pink marker effect)
+   ============================================ */
+.text-highlight {
+  background: linear-gradient(
+    180deg,
+    transparent 60%,
+    rgba(251, 150, 188, 0.25) 60%,
+    rgba(251, 150, 188, 0.25) 88%,
+    transparent 88%
+  );
+  padding: 0 4px;
+}
+
+/* ============================================
+   SMOOTH SCROLLING
+   ============================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FFF5F8;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(251, 150, 188, 0.5);
+  border-radius: 100px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(251, 150, 188, 0.7);
+}
+
+/* ============================================
+   HERO ANIMATED BLOBS
+   ============================================ */
+.hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  will-change: transform;
+}
+
+.hero-blob--1 {
+  width: 250px;
+  height: 250px;
+  top: -15%;
+  left: -10%;
+  background: rgba(255, 255, 255, 0.6);
+  animation: blob-1 10s ease-in-out infinite;
+}
+
+.hero-blob--2 {
+  width: 220px;
+  height: 220px;
+  bottom: -10%;
+  right: -5%;
+  background: rgba(200, 130, 180, 0.3);
+  animation: blob-2 13s ease-in-out infinite;
+}
+
+.hero-blob--3 {
+  width: 200px;
+  height: 200px;
+  top: 40%;
+  left: 45%;
+  background: rgba(255, 255, 255, 0.45);
+  animation: blob-3 16s ease-in-out infinite;
+}
+
+@media (min-width: 768px) {
+  .hero-blob--1 { width: 450px; height: 450px; }
+  .hero-blob--2 { width: 400px; height: 400px; }
+  .hero-blob--3 { width: 350px; height: 350px; }
+}
+
+@keyframes blob-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(80px, 50px) scale(1.15); }
+  66% { transform: translate(-40px, 30px) scale(0.9); }
+}
+
+@keyframes blob-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-60px, -40px) scale(1.1); }
+  66% { transform: translate(50px, -20px) scale(1.15); }
+}
+
+@keyframes blob-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-70px, 40px) scale(1.2); }
+  66% { transform: translate(60px, -50px) scale(0.85); }
+}
+
+/* ============================================
+   SECTION ALTERNATING BACKGROUNDS
+   ============================================ */
+.section-light {
+  background-color: #FFF5F8;
+}
+.section-blush {
+  background-color: transparent;
+}
+
+/* ============================================
+   MARQUEE SPEED — desktop slightly slower (more items visible)
+   ============================================ */
+@media (min-width: 768px) {
+  .animate-marquee-stats {
+    animation-duration: 35s !important;
+  }
+  .animate-marquee-reverse {
+    animation-duration: 25s !important;
+  }
+}
+
+/* ============================================
+   POPULAR CARD — rotating gradient border + shimmer
+   ============================================ */
+.popular-card {
+  position: relative;
+  isolation: isolate;
+}
+
+.popular-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 1.5rem;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--border-angle, 0deg),
+    #FB96BC 0%,
+    #FCD5E0 25%,
+    #FB96BC 50%,
+    #E8739E 75%,
+    #FB96BC 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: rotate-border 4s linear infinite;
+  z-index: -1;
+}
+
+.popular-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(251, 150, 188, 0.12) 45%,
+    rgba(251, 150, 188, 0.2) 50%,
+    rgba(251, 150, 188, 0.12) 55%,
+    transparent 60%
+  );
+  background-size: 250% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes rotate-border {
+  to { --border-angle: 360deg; }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}

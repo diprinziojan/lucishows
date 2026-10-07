@@ -1,0 +1,567 @@
+{
+  "nav": {
+    "brand": "Luciana",
+    "cta": "SOLICITAR PROPUESTA",
+    "about": "Sobre mí",
+    "packs": "Packs",
+    "results": "Resultados",
+    "services": "Servicios",
+    "contact": "Contacto",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "badge": "{spots} plazas disponibles",
+    "heading_1": "La agencia de",
+    "heading_highlight": "marketing digital",
+    "heading_2": "que convierte marcas en",
+    "heading_scramble": "referentes.",
+    "subheading": "Estrategia, contenido y resultados reales para marcas que quieren crecer de verdad",
+    "cta": "SOLICITAR PROPUESTA"
+  },
+  "brands": {
+    "heading": "Marcas que confían en nosotros"
+  },
+  "intro": {
+    "heading_before": "Sobre ",
+    "heading_highlight": "mí",
+    "p1": "Soy Luciana López, creadora de contenido y profesional del entorno digital, especializada en comunicación, <highlight>presencia de marca</highlight> y estrategias en redes sociales.",
+    "p2": "A lo largo de mi trayectoria he trabajado con diferentes empresas, eventos y proyectos, combinando visibilidad en redes con acciones promocionales que generan <highlight>impacto real</highlight> y conexión con el público. Mi enfoque se basa en una imagen cuidada, una comunicación clara y una ejecución profesional en cada colaboración.",
+    "p3": "Actualmente, mi actividad se divide en dos líneas principales: colaboraciones con Luci Shows y servicios de <highlight>marketing digital</highlight> para empresas que buscan crecer y posicionarse en el entorno online.",
+    "pillars": [
+      {
+        "title": "Estrategia",
+        "text": "Diseñamos un plan personalizado basado en datos, objetivos claros y el conocimiento profundo de tu audiencia."
+      },
+      {
+        "title": "Resultados",
+        "text": "Cada acción se mide. Informes transparentes con métricas reales de crecimiento, engagement y ROI."
+      },
+      {
+        "title": "Comunidad",
+        "text": "Conectamos tu marca con audiencias reales a través de contenido auténtico y colaboraciones con alcance masivo."
+      }
+    ]
+  },
+  "results": {
+    "heading_before": "Resultados que hablan ",
+    "heading_highlight": "por sí solos",
+    "subheading": "Nuestras campañas no solo generan contenido, generan impacto medible y ROI real.",
+    "stats": {
+      "followers": "Seguidores en redes sociales",
+      "followers_value": "+5M",
+      "views": "Visualizaciones (30 días)",
+      "views_value": "+100M",
+      "reach": "Alcance no-seguidores",
+      "reach_value": "64.5%",
+      "campaigns": "Campañas gestionadas",
+      "campaigns_value": "150+"
+    },
+    "carousel_description": "Hemos trabajado con empresas internacionales de distintos sectores, tanto con Luciana de forma personal, alcanzando más de 5 millones de seguidores en redes sociales, como desde la agencia prestando servicios de gestión de redes sociales, SEO y desarrollo de webs que convierten.",
+    "cards": [
+      { "metric": "+340%", "label": "Crecimiento seguidores" },
+      { "metric": "ROI 8x", "label": "Retorno inversión" },
+      { "metric": "+2.5K", "label": "Leads generados" },
+      { "metric": "80.8%", "label": "Share en Reels" },
+      { "metric": "+190%", "label": "Engagement rate" },
+      { "metric": "1.5M", "label": "Alcance mensual" }
+    ]
+  },
+  "viralReels": {
+    "heading_before": "Captamos ",
+    "heading_highlight": "tu atención",
+    "subheading": "Contenido viral que conecta con millones de personas"
+  },
+  "pricing": {
+    "heading_before": "Nuestros ",
+    "heading_highlight": "packs",
+    "subheading": "Soluciones integrales de marketing digital para cada etapa de tu marca",
+    "popular_badge": "RECOMENDADO",
+    "cta": "Solicitar propuesta",
+    "custom_cta": "Solicitar estudio gratuito",
+    "custom_subtitle": "Selecciona los servicios que te interesan y te preparamos un estudio personalizado sin compromiso",
+    "custom_email_subject": "Estudio personalizado — Pack a Medida",
+    "plans": {
+      "presencia": {
+        "name": "Pack Presencia",
+        "description": "Para negocios locales, emprendedores y marcas que dan sus primeros pasos online",
+        "features": [
+          "Campaña de marketing para 2 redes sociales",
+          "Diseño gráfico de cada publicación",
+          "Calendario editorial mensual",
+          "Respuesta a mensajes y comentarios",
+          "Optimización de perfiles",
+          "Informe mensual de resultados",
+          "Presencialidad de nuestro equipo técnico"
+        ]
+      },
+      "crecimiento": {
+        "name": "Pack Crecimiento",
+        "description": "Para marcas que quieren escalar con estrategia, contenido y publicidad",
+        "features": [
+          "Todo lo del Pack Presencia",
+          "SEO básico (optimización mensual)",
+          "Estrategia de contenido personalizada",
+          "Reunión estratégica mensual",
+          "Presencialidad de nuestro equipo técnico"
+        ]
+      },
+      "dominio": {
+        "name": "Pack Dominio Total",
+        "description": "Servicio 360° para empresas que quieren dominar su sector online",
+        "features": [
+          "Todo lo del Pack Crecimiento",
+          "Gestión completa de todas las redes",
+          "Campañas en Meta + Google Ads",
+          "SEO completo (técnico + contenidos)",
+          "Diseño y optimización continua de web",
+          "Email marketing + embudos de venta",
+          "Estrategia personalizada semanal",
+          "Reuniones estratégicas semanales",
+          "Presencialidad de nuestro equipo técnico"
+        ]
+      }
+    },
+    "custom": {
+      "name": "Pack a Medida",
+      "description": "Elige exactamente los servicios que necesitas. Sin compromisos, solo lo que te aporta valor.",
+      "services": [
+        "Gestión de redes sociales",
+        "Creación de contenido (diseño + copy)",
+        "Reels y vídeo corto",
+        "Campañas de Meta Ads",
+        "Campañas de Google Ads",
+        "SEO técnico",
+        "SEO de contenidos",
+        "Diseño web / landing pages",
+        "Email marketing",
+        "Embudos de venta",
+        "Estrategia y consultoría",
+        "Colaboración con influencer"
+      ]
+    }
+  },
+  "services": {
+    "heading": "Nuestros servicios",
+    "subheading": "Dos líneas de negocio, un solo objetivo: hacer crecer tu marca",
+    "tabs": {
+      "agency": {
+        "label": "Agencia",
+        "heading": "Marketing Digital 360°",
+        "description": "Servicio completo de agencia para llevar tu marca al siguiente nivel.",
+        "bullets": [
+          "Estrategia de contenido y calendario editorial",
+          "Gestión completa de redes sociales",
+          "Campañas de publicidad en Meta y Google Ads",
+          "SEO técnico y de contenidos",
+          "Diseño web y optimización de landing pages",
+          "Email marketing y automatizaciones",
+          "Informes mensuales detallados con métricas"
+        ],
+        "cta": "Solicitar propuesta agencia"
+      },
+      "influencer": {
+        "label": "Luci Shows",
+        "heading": "Colaboraciones con Influencer",
+        "description_before": "El poder de",
+        "description_number": "+5.000.000",
+        "description_after": "seguidores al servicio de tu marca.",
+        "bullets": [
+          "Posts patrocinados en feed con alcance masivo",
+          "Stories interactivas con enlaces directos",
+          "Reels virales con narrativa auténtica",
+          "Packs completos multi-plataforma",
+          "Contenido UGC para tu marca",
+          "Medición y reporte de cada campaña"
+        ],
+        "cta": "Solicitar colaboración"
+      }
+    }
+  },
+  "contactForms": {
+    "heading_before": "Hablemos de ",
+    "heading_highlight": "tu proyecto",
+    "subheading": "Elige el servicio que mejor se adapte a tus necesidades",
+    "tabs": {
+      "agency": "Agencia",
+      "influencer": "Luci Shows"
+    },
+    "agency": {
+      "title": "Solicitar propuesta de agencia",
+      "fields": {
+        "company": "Nombre de la empresa",
+        "contact": "Persona de contacto",
+        "email": "Email",
+        "sector": "Sector / industria",
+        "services": "Servicios de interés",
+        "budget": "Presupuesto estimado",
+        "message": "Cuéntanos sobre tu proyecto"
+      },
+      "service_options": {
+        "social_media": "Redes sociales",
+        "paid_ads": "Publicidad (Ads)",
+        "seo": "SEO",
+        "web_design": "Diseño web",
+        "email_mkt": "Email marketing",
+        "full_service": "Servicio completo"
+      },
+      "budget_options": {
+        "under_1000": "Menos de 1.000€/mes",
+        "1000_3000": "1.000€ – 3.000€/mes",
+        "3000_5000": "3.000€ – 5.000€/mes",
+        "5000_plus": "5.000€+/mes",
+        "not_sure": "Aún no lo sé"
+      }
+    },
+    "influencer": {
+      "title": "Solicitar colaboración con Luci",
+      "fields": {
+        "brand": "Nombre de la marca",
+        "contact": "Persona de contacto",
+        "email": "Email",
+        "collabType": "Tipo de colaboración",
+        "platform": "Plataforma principal",
+        "budget": "Presupuesto estimado",
+        "message": "Cuéntanos qué necesitas"
+      },
+      "collab_options": {
+        "feed_post": "Post en feed",
+        "stories": "Stories",
+        "reel": "Reel / Vídeo",
+        "ugc": "Contenido UGC",
+        "full_pack": "Pack completo"
+      },
+      "platform_options": {
+        "instagram": "Instagram",
+        "tiktok": "TikTok",
+        "facebook": "Facebook",
+        "multi": "Multi-plataforma"
+      },
+      "budget_options": {
+        "under_500": "Menos de 500€",
+        "500_1000": "500€ – 1.000€",
+        "1000_3000": "1.000€ – 3.000€",
+        "3000_plus": "3.000€+",
+        "not_sure": "Aún no lo sé"
+      }
+    },
+    "buttons": {
+      "submit": "ENVIAR SOLICITUD"
+    },
+    "success": "¡Solicitud enviada! Te contactaremos pronto.",
+    "validation": {
+      "required": "Este campo es obligatorio",
+      "invalid_email": "Introduce un email válido",
+      "submit_error": "Error al enviar. Inténtalo de nuevo."
+    }
+  },
+  "faq": {
+    "heading_before": "Preguntas ",
+    "heading_highlight": "Frecuentes",
+    "cta": "¿Tienes más preguntas? Contáctanos",
+    "items": [
+      {
+        "question": "¿Qué servicios ofrece Luciana como agencia?",
+        "answer": "Ofrecemos gestión de redes sociales, publicidad en Meta y Google Ads, SEO, diseño web, email marketing, estrategia de contenido y más. Todo integrado bajo una sola estrategia."
+      },
+      {
+        "question": "¿Cómo funciona una colaboración con Luci Shows?",
+        "answer": "Definimos juntos los objetivos, creamos el briefing, producimos contenido auténtico y lo publicamos con máximo alcance. Cada colaboración incluye un informe de resultados."
+      },
+      {
+        "question": "¿Cuánto tarda en verse resultados?",
+        "answer": "Los primeros resultados suelen verse en 2-4 semanas. Una estrategia completa de crecimiento orgánico y pagado muestra su impacto real a partir del segundo o tercer mes."
+      },
+      {
+        "question": "¿Cuál es el presupuesto mínimo para trabajar con vosotros?",
+        "answer": "Nuestro pack más accesible arranca en un rango de 300-600€/mes. Para campañas de influencer el presupuesto varía según el tipo de contenido y alcance deseado."
+      },
+      {
+        "question": "¿Trabajáis con marcas internacionales?",
+        "answer": "Sí, trabajamos con marcas de España, Europa, Latinoamérica y Estados Unidos. Nuestro contenido se adapta a cada mercado y audiencia."
+      },
+      {
+        "question": "¿Qué métricas incluyen los informes?",
+        "answer": "Cada informe incluye alcance, impresiones, engagement rate, crecimiento de seguidores, tráfico web, conversiones y ROI estimado de cada campaña."
+      },
+      {
+        "question": "¿Cómo es el proceso de onboarding?",
+        "answer": "Empezamos con una reunión de briefing para entender tu marca, objetivos y público. Después diseñamos la estrategia y un calendario de contenido. Todo el proceso tarda 5-7 días hábiles."
+      },
+      {
+        "question": "¿Puedo cancelar el servicio en cualquier momento?",
+        "answer": "Trabajamos con contratos mensuales renovables. Puedes cancelar con 15 días de preaviso antes del siguiente ciclo de facturación, sin penalizaciones."
+      },
+      {
+        "question": "¿Cómo es el proceso de pago?",
+        "answer": "Para servicios de agencia cobramos mensualmente por adelantado. Para colaboraciones con influencer, 50% al confirmar y 50% a la entrega. Aceptamos transferencia bancaria y Bizum."
+      },
+      {
+        "question": "¿Puedo ver ejemplos de trabajos anteriores?",
+        "answer": "Por supuesto, durante la reunión inicial te compartiremos nuestro portfolio completo con casos de éxito y métricas reales de campañas anteriores."
+      },
+      {
+        "question": "¿Ofrecéis servicios puntuales o solo mensuales?",
+        "answer": "Ofrecemos ambos. Los packs son mensuales, pero también hacemos proyectos puntuales como diseño web, campañas específicas o colaboraciones individuales con Luci."
+      },
+      {
+        "question": "¿Qué diferencia a Luciana de otras agencias?",
+        "answer": "Combinamos servicios de agencia profesional con el poder de una influencer de +5M seguidores. Eso significa estrategia + alcance real en un solo partner."
+      }
+    ]
+  },
+  "footer": {
+    "ctaHeading": "¿Está tu marca lista para crecer?",
+    "ctaSub": "Hablemos sobre cómo llevar tu marca al siguiente nivel",
+    "description": "Agencia de marketing digital + influencer. Estrategia, contenido y resultados para marcas que quieren crecer.",
+    "sections": "Secciones",
+    "pages": "Páginas",
+    "legal": "Legal",
+    "contactTitle": "Contacto",
+    "links": {
+      "packs": "Packs",
+      "results": "Resultados",
+      "faq": "FAQs",
+      "contact": "Contacto",
+      "about": "Sobre Luciana",
+      "portfolio": "Portfolio",
+      "privacy": "Privacidad",
+      "terms": "Aviso Legal",
+      "cookies": "Cookies"
+    },
+    "copyright": "© 2026 Luciana. Todos los derechos reservados.",
+    "credit": "Diseñado por Fast Horizons"
+  },
+  "language": {
+    "switch_label": "EN"
+  },
+  "about": {
+    "heroHeading": "Sobre Luciana",
+    "heroSubtitle": "Creadora de contenido, profesional digital y fundadora de una agencia con propósito",
+    "origin": {
+      "heading": "El Origen",
+      "text": "Luciana llegó a España desde Argentina con una maleta, un pasaporte y la convicción de que podía construir algo propio. Sin contactos, sin red de apoyo y con recursos limitados, empezó desde cero en un país que no conocía."
+    },
+    "present": {
+      "heading": "El Presente",
+      "text": "Hoy, con más de 5 millones de seguidores en redes sociales, Luciana es referente en creación de contenido y marketing digital. Su constancia la convirtió en una creadora viral, con ingresos elevados y la capacidad de aportar valor real a empresas, ayudándolas a alcanzar sus objetivos."
+    },
+    "agency": {
+      "heading": "Sobre la Agencia",
+      "description": "Luciana nace como la evolución natural de años de experiencia en el entorno digital. Combinamos servicios profesionales de agencia con el alcance masivo de una influencer de +5M seguidores: estrategia y visibilidad real bajo un mismo equipo.",
+      "pillars": [
+        {
+          "title": "Estrategia",
+          "text": "Diseñamos un plan personalizado basado en datos, objetivos claros y el conocimiento profundo de tu audiencia."
+        },
+        {
+          "title": "Resultados",
+          "text": "Cada acción se mide. Informes transparentes con métricas reales de crecimiento, engagement y ROI."
+        },
+        {
+          "title": "Comunidad",
+          "text": "Conectamos tu marca con audiencias reales a través de contenido auténtico y colaboraciones con alcance masivo."
+        }
+      ]
+    },
+    "cta": "SOLICITAR PROPUESTA"
+  },
+  "legal": {
+    "lastUpdated": "Última actualización: febrero 2026",
+    "privacy": {
+      "title": "Política de Privacidad",
+      "intro": "En cumplimiento del Reglamento General de Protección de Datos (RGPD) UE 2016/679, la Ley Orgánica 3/2018 de Protección de Datos Personales y garantía de los derechos digitales (LOPD-GDD), y la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), le informamos de lo siguiente:",
+      "controller": {
+        "heading": "1. Responsable del tratamiento",
+        "text": "Luciana López Agency\nUbicación: Barcelona, España\nEmail: management@lucishows.com\nTeléfono: +34 601 16 62 57\nWeb: lucishows.com"
+      },
+      "dataCollected": {
+        "heading": "2. Datos recopilados",
+        "text": "A través de los formularios de contacto de este sitio web recopilamos los siguientes datos personales:",
+        "items": [
+          "Nombre y apellidos o nombre de la empresa",
+          "Dirección de correo electrónico",
+          "Número de teléfono (opcional)",
+          "Sector o industria",
+          "Información sobre su proyecto o necesidades"
+        ]
+      },
+      "purposes": {
+        "heading": "3. Finalidades del tratamiento",
+        "text": "Los datos personales proporcionados serán tratados con las siguientes finalidades:",
+        "items": [
+          "Gestionar y responder a las solicitudes de contacto y propuestas recibidas",
+          "Enviar comunicaciones comerciales relacionadas con nuestros servicios, previo consentimiento",
+          "Elaborar presupuestos y propuestas personalizadas",
+          "Mantener la relación contractual con nuestros clientes"
+        ]
+      },
+      "legalBasis": {
+        "heading": "4. Base legal del tratamiento",
+        "text": "El tratamiento de sus datos se fundamenta en:",
+        "items": [
+          "El consentimiento del interesado al enviar el formulario de contacto (art. 6.1.a RGPD)",
+          "La ejecución de un contrato o la aplicación de medidas precontractuales (art. 6.1.b RGPD)",
+          "El interés legítimo del responsable para el mantenimiento de la relación comercial (art. 6.1.f RGPD)"
+        ]
+      },
+      "recipients": {
+        "heading": "5. Destinatarios",
+        "text": "Sus datos podrán ser comunicados a los siguientes destinatarios:",
+        "items": [
+          "Netlify, Inc. — como proveedor de alojamiento y procesamiento de formularios (ubicado en EE.UU., adherido al marco EU-U.S. Data Privacy Framework)",
+          "No se realizarán cesiones de datos a terceros salvo obligación legal"
+        ]
+      },
+      "rights": {
+        "heading": "6. Derechos del interesado",
+        "text": "Usted puede ejercer los siguientes derechos en relación con sus datos personales:",
+        "items": [
+          "Derecho de acceso: conocer qué datos personales tratamos sobre usted",
+          "Derecho de rectificación: solicitar la corrección de datos inexactos",
+          "Derecho de supresión: solicitar la eliminación de sus datos",
+          "Derecho de portabilidad: recibir sus datos en un formato estructurado",
+          "Derecho de oposición: oponerse al tratamiento de sus datos",
+          "Derecho a la limitación del tratamiento: solicitar la limitación del tratamiento en determinadas circunstancias"
+        ],
+        "howTo": "Para ejercer cualquiera de estos derechos, puede contactarnos en management@lucishows.com indicando su solicitud y adjuntando copia de su documento de identidad."
+      },
+      "retention": {
+        "heading": "7. Plazo de conservación",
+        "text": "Los datos personales serán conservados durante el tiempo necesario para cumplir con la finalidad para la que fueron recogidos. Una vez finalizada la relación, los datos se conservarán durante los plazos legalmente establecidos (mínimo 3 años según la Ley General Tributaria)."
+      },
+      "authority": {
+        "heading": "8. Autoridad de control",
+        "text": "Si considera que el tratamiento de sus datos no se ajusta a la normativa vigente, puede presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD) en www.aepd.es."
+      }
+    },
+    "terms": {
+      "title": "Términos de Servicio",
+      "intro": "El presente aviso legal regula el uso del sitio web lucishows.com, propiedad de Luciana López Agency.",
+      "owner": {
+        "heading": "1. Identificación del titular",
+        "text": "Luciana López Agency\nUbicación: Barcelona, España\nEmail: management@lucishows.com\nTeléfono: +34 601 16 62 57\nWeb: lucishows.com"
+      },
+      "purpose": {
+        "heading": "2. Objeto y ámbito de aplicación",
+        "text": "Este sitio web tiene como objeto proporcionar información sobre los servicios de marketing digital y colaboraciones con influencers ofrecidos por Luciana López Agency. Estas condiciones regulan el acceso y uso de la web por parte de los usuarios."
+      },
+      "conditions": {
+        "heading": "3. Condiciones de uso",
+        "text": "El usuario se compromete a utilizar este sitio web de conformidad con la ley, el presente aviso legal y las buenas costumbres. El usuario se abstendrá de:",
+        "items": [
+          "Utilizar el sitio web con fines ilícitos o contrarios a lo establecido en estas condiciones",
+          "Reproducir, copiar, distribuir o modificar los contenidos sin autorización previa por escrito",
+          "Introducir virus informáticos, archivos defectuosos o cualquier software que pueda causar daños",
+          "Intentar acceder a áreas restringidas de los sistemas informáticos del sitio web"
+        ]
+      },
+      "ip": {
+        "heading": "4. Propiedad intelectual e industrial",
+        "text": "Todos los contenidos del sitio web (textos, imágenes, logotipos, diseños, código fuente, marcas y cualquier otro elemento) son propiedad de Luciana López Agency o de sus respectivos titulares, y están protegidos por las leyes españolas e internacionales de propiedad intelectual e industrial. Queda prohibida la reproducción total o parcial sin autorización expresa."
+      },
+      "liability": {
+        "heading": "5. Limitación de responsabilidad",
+        "text": "Luciana López Agency no será responsable de:",
+        "items": [
+          "Los daños que pudieran derivarse del uso inadecuado de este sitio web",
+          "Los contenidos de sitios web de terceros enlazados desde esta página",
+          "La disponibilidad técnica, exactitud, veracidad o validez de los contenidos",
+          "Interrupciones del servicio por mantenimiento, fallos técnicos o causas de fuerza mayor"
+        ]
+      },
+      "links": {
+        "heading": "6. Enlaces externos",
+        "text": "Este sitio web puede contener enlaces a páginas de terceros. Luciana López Agency no se responsabiliza del contenido, políticas de privacidad o prácticas de dichos sitios web externos."
+      },
+      "modifications": {
+        "heading": "7. Modificaciones",
+        "text": "Luciana López Agency se reserva el derecho de modificar estos términos en cualquier momento. Las modificaciones serán efectivas desde su publicación en este sitio web. Le recomendamos revisar esta página periódicamente."
+      },
+      "law": {
+        "heading": "8. Legislación aplicable y jurisdicción",
+        "text": "Estas condiciones se rigen por la legislación española. Para la resolución de cualquier controversia, las partes se someten a los Juzgados y Tribunales de Barcelona, con renuncia expresa a cualquier otro fuero que pudiera corresponderles."
+      }
+    },
+    "cookies": {
+      "title": "Política de Cookies",
+      "intro": "En cumplimiento de la Ley 34/2002 (LSSI-CE) y el Reglamento General de Protección de Datos (RGPD), le informamos sobre el uso de cookies en este sitio web.",
+      "what": {
+        "heading": "1. ¿Qué son las cookies?",
+        "text": "Las cookies son pequeños archivos de texto que se almacenan en su dispositivo (ordenador, tablet o móvil) cuando visita un sitio web. Permiten que el sitio recuerde sus acciones y preferencias durante un periodo de tiempo, de forma que no tenga que volver a introducirlos cada vez que visite el sitio."
+      },
+      "types": {
+        "heading": "2. Tipos de cookies que utilizamos",
+        "technical": {
+          "heading": "Cookies técnicas (necesarias)",
+          "text": "Son imprescindibles para el funcionamiento del sitio web. Permiten la navegación y el uso de las diferentes opciones o servicios que ofrece."
+        },
+        "analytics": {
+          "heading": "Cookies analíticas",
+          "text": "Nos permiten cuantificar el número de usuarios y realizar la medición y análisis estadístico de la utilización del sitio web. Para ello, se analiza su navegación con el fin de mejorar la oferta de productos y servicios."
+        }
+      },
+      "thirdParty": {
+        "heading": "3. Cookies de terceros",
+        "text": "Este sitio web puede incluir contenido integrado de terceros (por ejemplo, vídeos de Instagram o TikTok). Estos servicios pueden instalar sus propias cookies. Le recomendamos consultar las políticas de cookies de cada proveedor:",
+        "items": [
+          "Instagram (Meta Platforms, Inc.) — política de cookies de Meta",
+          "TikTok (ByteDance Ltd.) — política de cookies de TikTok"
+        ]
+      },
+      "manage": {
+        "heading": "4. Cómo gestionar y desactivar cookies",
+        "text": "Puede configurar su navegador para aceptar, rechazar o eliminar cookies. A continuación le indicamos cómo hacerlo en los principales navegadores:",
+        "items": [
+          "Google Chrome: Configuración → Privacidad y seguridad → Cookies",
+          "Mozilla Firefox: Opciones → Privacidad y seguridad → Cookies",
+          "Safari: Preferencias → Privacidad → Cookies",
+          "Microsoft Edge: Configuración → Cookies y permisos del sitio"
+        ],
+        "note": "Tenga en cuenta que la desactivación de cookies puede afectar al funcionamiento de algunas funcionalidades del sitio web."
+      },
+      "updates": {
+        "heading": "5. Actualización de esta política",
+        "text": "Esta política de cookies puede actualizarse en cualquier momento para adaptarse a novedades normativas o cambios en nuestro sitio web. Le recomendamos revisarla periódicamente. Cualquier cambio significativo será comunicado a través de un aviso visible en el sitio web."
+      }
+    }
+  },
+  "proposal": {
+    "heading_before": "Tu marca no vende. ",
+    "heading_highlight": "Eso tiene solución.",
+    "subheading": "Diseñamos estrategias de marketing digital que convierten visibilidad en clientes reales.",
+    "fields": {
+      "fullName": "Nombre y apellidos",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "website": "Web",
+      "budget": "Presupuesto",
+      "project": "Cuéntanos sobre tu proyecto"
+    },
+    "budget_options": {
+      "placeholder": "Selecciona un rango",
+      "under_500": "Menos de 500 €",
+      "500_1000": "500 € – 1.000 €",
+      "1000_3000": "1.000 € – 3.000 €",
+      "3000_5000": "3.000 € – 5.000 €",
+      "5000_plus": "Más de 5.000 €",
+      "not_sure": "No estoy seguro/a"
+    },
+    "placeholders": {
+      "fullName": "María García López",
+      "email": "maria@empresa.com",
+      "phone": "+34 600 000 000",
+      "website": "https://tuempresa.com",
+      "project": "Cuéntanos qué necesitas..."
+    },
+    "submit": "Enviar solicitud",
+    "success_title": "¡Muchas gracias!",
+    "success_message": "Hemos recibido tu solicitud. Nos pondremos en contacto contigo a la mayor brevedad posible.",
+    "error": "Hubo un error al enviar. Inténtalo de nuevo.",
+    "required": "Este campo es obligatorio",
+    "invalid_email": "Introduce un email válido"
+  },
+  "metadata": {
+    "title": "Luciana | Agencia de Marketing Digital & Influencer",
+    "description": "Agencia de marketing digital + influencer. Estrategia, contenido y resultados reales para marcas que quieren crecer."
+  }
+}
