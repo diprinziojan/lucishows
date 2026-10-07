@@ -17,7 +17,7 @@ export function Footer({ hideCta = false }: { hideCta?: boolean } = {}) {
     <footer className="relative z-10">
       {/* CTA Banner */}
       {!hideCta && (
-      <div className="bg-gradient-to-r from-white via-brand-bg-light to-brand-bg">
+      <div className="bg-gradient-to-r from-brand-bg via-brand-cta to-brand-bg-dark">
         <div className="max-w-4xl mx-auto px-6 py-14 text-center">
           <motion.h2
             className="font-heading text-3xl md:text-4xl text-brand-text mb-3 tracking-wide"
