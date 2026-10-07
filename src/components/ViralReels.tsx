@@ -23,13 +23,13 @@ function ReelCard({ reel, number }: { reel: (typeof REELS)[number]; number: numb
   const visible = useInView(cardRef, { amount: 0.35 });
   const reducedMotion = useReducedMotion();
   const [playing, setPlaying] = useState(false);
-  const [manuallyPaused, setManuallyPaused] = useState(false);
+  const [userPlayback, setUserPlayback] = useState<boolean | null>(null);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video || !loadVideo) return;
     const syncPlayback = () => {
-      if (visible && !document.hidden && !reducedMotion && !manuallyPaused) {
+      if (visible && !document.hidden && (userPlayback === true || userPlayback === null && !reducedMotion)) {
         void video.play().catch(() => {});
       } else video.pause();
     };
@@ -39,16 +39,16 @@ function ReelCard({ reel, number }: { reel: (typeof REELS)[number]; number: numb
       document.removeEventListener('visibilitychange', syncPlayback);
       video.pause();
     };
-  }, [visible, loadVideo, reducedMotion, manuallyPaused]);
+  }, [visible, loadVideo, reducedMotion, userPlayback]);
 
   const toggle = () => {
     const video = videoRef.current;
     if (!video) return;
     if (video.paused) {
-      setManuallyPaused(false);
+      setUserPlayback(true);
       void video.play().catch(() => {});
     } else {
-      setManuallyPaused(true);
+      setUserPlayback(false);
       video.pause();
     }
   };
