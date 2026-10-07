@@ -17,7 +17,7 @@ export function Footer({ hideCta = false }: { hideCta?: boolean } = {}) {
     <footer className="relative z-10">
       {/* CTA Banner */}
       {!hideCta && (
-      <div className="bg-gradient-to-r from-brand-bg via-brand-cta to-brand-bg-dark">
+      <div className="bg-gradient-to-r from-white via-brand-bg-light to-brand-bg">
         <div className="max-w-4xl mx-auto px-6 py-14 text-center">
           <motion.h2
             className="font-heading text-3xl md:text-4xl text-brand-text mb-3 tracking-wide"
@@ -43,7 +43,7 @@ export function Footer({ hideCta = false }: { hideCta?: boolean } = {}) {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <GlossyButton href="mailto:management@lucishows.com">
+            <GlossyButton href="mailto:lucianalopezfb@gmail.com">
               {t('links.contact')}
             </GlossyButton>
           </motion.div>
@@ -109,7 +109,7 @@ export function Footer({ hideCta = false }: { hideCta?: boolean } = {}) {
               <ul className="space-y-3">
                 <li className="flex items-center gap-2">
                   <EnvelopeSimple className="w-4 h-4 text-brand-cta flex-shrink-0" weight="fill" />
-                  <a href="mailto:management@lucishows.com" className="font-body text-gray-400 text-sm hover:text-brand-cta transition-colors">management@lucishows.com</a>
+                  <a href="mailto:lucianalopezfb@gmail.com" className="font-body text-gray-400 text-sm hover:text-brand-cta transition-colors">lucianalopezfb@gmail.com</a>
                 </li>
                 <li className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-brand-cta flex-shrink-0" weight="fill" />

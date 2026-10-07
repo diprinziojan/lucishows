@@ -302,7 +302,9 @@
       "contact": "Full name",
       "email": "name@company.com",
       "sector": "Hospitality, retail…"
-    }
+    },
+    "deliveryFailed": "We could not send your request. Your details are still in the form. You can open your email with the request prepared and send it to lucianalopezfb@gmail.com.",
+    "emailAction": "SEND FROM MY EMAIL"
   },
   "faq": {
     "heading_before": "Frequently asked ",
@@ -423,7 +425,7 @@
       "intro": "In compliance with the General Data Protection Regulation (GDPR) EU 2016/679, the Spanish Organic Law 3/2018 on the Protection of Personal Data and the guarantee of digital rights (LOPD-GDD), and Law 34/2002 on Information Society Services and Electronic Commerce (LSSI-CE), we inform you of the following:",
       "controller": {
         "heading": "1. Data Controller",
-        "text": "Luciana López Agency\nLocation: Barcelona, Spain\nEmail: management@lucishows.com\nPhone: +34 601 16 62 57\nWebsite: lucianalopez.es"
+        "text": "Luciana López Agency\nLocation: Barcelona, Spain\nEmail: lucianalopezfb@gmail.com\nPhone: +34 601 16 62 57\nWebsite: lucianalopez.es"
       },
       "dataCollected": {
         "heading": "2. Data Collected",
@@ -474,7 +476,7 @@
           "Right of objection: object to the processing of your data",
           "Right to restriction: request the limitation of processing in certain circumstances"
         ],
-        "howTo": "To exercise any of these rights, please contact us at management@lucishows.com stating your request and attaching a copy of your identity document."
+        "howTo": "To exercise any of these rights, please contact us at lucianalopezfb@gmail.com stating your request and attaching a copy of your identity document."
       },
       "retention": {
         "heading": "7. Data Retention Period",
@@ -490,7 +492,7 @@
       "intro": "This legal notice regulates the use of the website lucianalopez.es, owned by Luciana López Agency.",
       "owner": {
         "heading": "1. Owner Identification",
-        "text": "Luciana López Agency\nLocation: Barcelona, Spain\nEmail: management@lucishows.com\nPhone: +34 601 16 62 57\nWebsite: lucianalopez.es"
+        "text": "Luciana López Agency\nLocation: Barcelona, Spain\nEmail: lucianalopezfb@gmail.com\nPhone: +34 601 16 62 57\nWebsite: lucianalopez.es"
       },
       "purpose": {
         "heading": "2. Purpose and Scope",
@@ -612,7 +614,9 @@
     "invalid_email": "Please enter a valid email",
     "privacyNotice": "We will use your details to respond to your request. Read our ",
     "privacyLink": "privacy policy",
-    "sending": "Sending…"
+    "sending": "Sending…",
+    "deliveryFailed": "We could not send your request. Your details are still in the form. You can open your email with the request prepared and send it to lucianalopezfb@gmail.com.",
+    "emailAction": "SEND FROM MY EMAIL"
   },
   "metadata": {
     "title": "Luciana López | Digital Marketing & Content Creation",

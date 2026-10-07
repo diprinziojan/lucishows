@@ -10,7 +10,8 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { AnimatedHeading } from '@/components/ui/AnimatedHeading';
 import { fadeUp } from '@/lib/animations';
-import { FormNotice, Honeypot } from '@/components/ui/FormNotice';
+import { FormNotice, Honeypot, DeliveryFallback } from '@/components/ui/FormNotice';
+import { contactEmailDraft, submitContactForm } from '@/lib/contact';
 
 type ProposalFormData = {
   fullName: string;
@@ -32,23 +33,25 @@ export default function ProposalPage() {
   const locale = useLocale();
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const { register, handleSubmit, control, formState: { errors } } = useForm<ProposalFormData>();
 
   const onSubmit = async (data: ProposalFormData) => {
     setSubmitting(true);
-    setError(false);
+    setError(null);
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ formType: 'proposal', locale, ...data }),
-      });
-      if (!res.ok) throw new Error('Failed');
+      await submitContactForm({ formType: 'proposal', locale, ...data });
       setSubmitted(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch {
-      setError(true);
+      setError(contactEmailDraft(t('submit'), [
+        [t('fields.fullName'), data.fullName],
+        [t('fields.email'), data.email],
+        [t('fields.phone'), data.phone],
+        [t('fields.website'), data.website || ''],
+        [t('fields.budget'), data.budget ? t(`budget_options.${data.budget}`) : ''],
+        [t('fields.project'), data.project],
+      ]));
     } finally {
       setSubmitting(false);
     }
@@ -195,7 +198,7 @@ export default function ProposalPage() {
 
                   <FormNotice namespace="proposal" />
                   {error && (
-                    <p role="alert" className="text-red-700 text-sm text-center">{t('error')}</p>
+                    <DeliveryFallback namespace="proposal" href={error} />
                   )}
 
                   <div className="pt-3">

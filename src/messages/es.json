@@ -302,7 +302,9 @@
       "contact": "Nombre y apellidos",
       "email": "nombre@empresa.com",
       "sector": "Restauración, comercio…"
-    }
+    },
+    "deliveryFailed": "No hemos podido enviar tu solicitud. Tus datos siguen en el formulario. Puedes abrir tu correo con la solicitud preparada y enviarla a lucianalopezfb@gmail.com.",
+    "emailAction": "ENVIAR DESDE MI CORREO"
   },
   "faq": {
     "heading_before": "Preguntas ",
@@ -423,7 +425,7 @@
       "intro": "En cumplimiento del Reglamento General de Protección de Datos (RGPD) UE 2016/679, la Ley Orgánica 3/2018 de Protección de Datos Personales y garantía de los derechos digitales (LOPD-GDD), y la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), le informamos de lo siguiente:",
       "controller": {
         "heading": "1. Responsable del tratamiento",
-        "text": "Luciana López Agency\nUbicación: Barcelona, España\nEmail: management@lucishows.com\nTeléfono: +34 601 16 62 57\nWeb: lucianalopez.es"
+        "text": "Luciana López Agency\nUbicación: Barcelona, España\nEmail: lucianalopezfb@gmail.com\nTeléfono: +34 601 16 62 57\nWeb: lucianalopez.es"
       },
       "dataCollected": {
         "heading": "2. Datos recopilados",
@@ -474,7 +476,7 @@
           "Derecho de oposición: oponerse al tratamiento de sus datos",
           "Derecho a la limitación del tratamiento: solicitar la limitación del tratamiento en determinadas circunstancias"
         ],
-        "howTo": "Para ejercer cualquiera de estos derechos, puede contactarnos en management@lucishows.com indicando su solicitud y adjuntando copia de su documento de identidad."
+        "howTo": "Para ejercer cualquiera de estos derechos, puede contactarnos en lucianalopezfb@gmail.com indicando su solicitud y adjuntando copia de su documento de identidad."
       },
       "retention": {
         "heading": "7. Plazo de conservación",
@@ -490,7 +492,7 @@
       "intro": "El presente aviso legal regula el uso del sitio web lucianalopez.es, propiedad de Luciana López Agency.",
       "owner": {
         "heading": "1. Identificación del titular",
-        "text": "Luciana López Agency\nUbicación: Barcelona, España\nEmail: management@lucishows.com\nTeléfono: +34 601 16 62 57\nWeb: lucianalopez.es"
+        "text": "Luciana López Agency\nUbicación: Barcelona, España\nEmail: lucianalopezfb@gmail.com\nTeléfono: +34 601 16 62 57\nWeb: lucianalopez.es"
       },
       "purpose": {
         "heading": "2. Objeto y ámbito de aplicación",
@@ -612,7 +614,9 @@
     "invalid_email": "Introduce un email válido",
     "privacyNotice": "Usaremos tus datos para responder a tu solicitud. Consulta nuestra ",
     "privacyLink": "política de privacidad",
-    "sending": "Enviando…"
+    "sending": "Enviando…",
+    "deliveryFailed": "No hemos podido enviar tu solicitud. Tus datos siguen en el formulario. Puedes abrir tu correo con la solicitud preparada y enviarla a lucianalopezfb@gmail.com.",
+    "emailAction": "ENVIAR DESDE MI CORREO"
   },
   "metadata": {
     "title": "Luciana López | Marketing digital y creación de contenido",

@@ -1,9 +1,8 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { CheckCircle, Circle, EnvelopeSimple } from '@phosphor-icons/react';
+import { CheckCircle } from '@phosphor-icons/react';
 import { GlossyButton } from './ui/GlossyButton';
 import { SectionWrapper } from './ui/SectionWrapper';
 import { AnimatedHeading } from './ui/AnimatedHeading';
@@ -15,19 +14,8 @@ const plans = [
   { key: 'dominio', featureCount: 9, popular: false },
 ] as const;
 
-const CUSTOM_SERVICE_COUNT = 12;
-
 export function Pricing() {
   const t = useTranslations('pricing');
-  const [selected, setSelected] = useState<boolean[]>(Array(CUSTOM_SERVICE_COUNT).fill(false));
-
-  const toggleService = (i: number) => {
-    setSelected((prev) => {
-      const next = [...prev];
-      next[i] = !next[i];
-      return next;
-    });
-  };
 
   return (
     <SectionWrapper id="pricing" bg="light">
@@ -92,65 +80,6 @@ export function Pricing() {
         ))}
       </motion.div>
 
-      {/* Custom pack */}
-      <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-80px' }}
-        className="mt-12 bg-gradient-to-br from-white via-[#FFF5F8] to-[#FEE7ED] rounded-3xl p-8 md:p-10 shadow-md border border-brand-card-border max-w-4xl mx-auto"
-      >
-        <div className="text-center mb-6">
-          <h3 className="font-heading text-2xl md:text-3xl font-bold text-brand-text">
-            {t('custom.name')}
-          </h3>
-          <p className="mt-2 font-body text-brand-text-muted text-sm max-w-lg mx-auto">
-            {t('custom.description')}
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mb-4">
-          {Array.from({ length: CUSTOM_SERVICE_COUNT }, (_, i) => (
-            <button
-              key={i}
-              type="button"
-              onClick={() => toggleService(i)}
-              aria-pressed={selected[i]}
-              className={`flex items-center gap-2.5 rounded-xl px-4 py-3 text-left text-sm font-body font-medium border transition-all duration-200 cursor-pointer ${
-                selected[i]
-                  ? 'bg-brand-cta text-brand-text border-brand-cta shadow-sm shadow-brand-cta/15'
-                  : 'bg-white/80 text-brand-text-muted border-brand-card-border hover:border-brand-cta/40'
-              }`}
-            >
-              {selected[i] ? (
-                <CheckCircle className="w-5 h-5 flex-shrink-0" weight="fill" />
-              ) : (
-                <Circle className="w-5 h-5 flex-shrink-0 opacity-40" />
-              )}
-              {t(`custom.services.${i}`)}
-            </button>
-          ))}
-        </div>
-
-        <p className="text-center font-body text-brand-text-muted text-xs mb-8">
-          {t('custom_subtitle')}
-        </p>
-
-        <div className="text-center flex flex-col items-center gap-3">
-          <GlossyButton
-            href={`mailto:lucianalopezfb@gmail.com?subject=${encodeURIComponent(t('custom_email_subject'))}&body=${encodeURIComponent(
-              selected.some(Boolean)
-                ? `Servicios seleccionados:\n${selected.map((s, i) => s ? `• ${t(`custom.services.${i}`)}` : '').filter(Boolean).join('\n')}\n\n`
-                : ''
-            )}`}
-            wrapperClassName="glossy-cta-card-wrapper"
-            className="glossy-cta-card glossy-cta-gradient"
-          >
-            <EnvelopeSimple size={16} weight="fill" className="mr-1" />
-            {t('custom_cta')}
-          </GlossyButton>
-        </div>
-      </motion.div>
     </SectionWrapper>
   );
 }

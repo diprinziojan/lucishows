@@ -9,7 +9,8 @@ import { GlossyButton } from './ui/GlossyButton';
 import { SectionWrapper } from './ui/SectionWrapper';
 import { AnimatedHeading } from './ui/AnimatedHeading';
 import { fadeUp } from '@/lib/animations';
-import { FormNotice, Honeypot } from './ui/FormNotice';
+import { FormNotice, Honeypot, DeliveryFallback } from './ui/FormNotice';
+import { contactEmailDraft, submitContactForm } from '@/lib/contact';
 
 type AgencyFormData = {
   company: string;
@@ -37,12 +38,7 @@ const inputClass =
   'w-full rounded-2xl border border-brand-card-border bg-white/80 backdrop-blur-sm px-5 py-4 font-body text-brand-text placeholder:text-brand-text-muted/40 focus:outline-none focus:ring-2 focus:ring-brand-cta/30 focus:border-brand-cta focus:bg-white transition-all duration-200 text-sm';
 
 async function submitForm(formType: 'agency' | 'influencer', data: Record<string, string | string[]>, locale: string) {
-  const res = await fetch('/api/contact', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ formType, locale, ...data }),
-  });
-  if (!res.ok) throw new Error('Form submission failed');
+  await submitContactForm({ formType, locale, ...data });
 }
 
 export function ContactForms() {
@@ -142,16 +138,24 @@ function AgencyForm({ t, onSuccess }: { t: ReturnType<typeof useTranslations<'co
   };
 
   const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const onSubmit = async (data: AgencyFormData) => {
     setSubmitting(true);
-    setError(false);
+    setError(null);
     try {
       await submitForm('agency', { ...data, services: selectedServices }, locale);
       onSuccess();
     } catch {
-      setError(true);
+      setError(contactEmailDraft(t('agency.title'), [
+        [t('agency.fields.company'), data.company],
+        [t('agency.fields.contact'), data.contact],
+        [t('agency.fields.email'), data.email],
+        [t('agency.fields.sector'), data.sector || ''],
+        [t('agency.fields.services'), selectedServices.map(value => t(`agency.service_options.${value}`)).join(', ')],
+        [t('agency.fields.budget'), data.budget ? t(`agency.budget_options.${data.budget}`) : ''],
+        [t('agency.fields.message'), data.message || ''],
+      ]));
     } finally {
       setSubmitting(false);
     }
@@ -280,7 +284,7 @@ function AgencyForm({ t, onSuccess }: { t: ReturnType<typeof useTranslations<'co
 
           <FormNotice namespace="contactForms" />
           {error && (
-            <p role="alert" className="text-red-700 text-sm text-center">{t('validation.submit_error')}</p>
+            <DeliveryFallback namespace="contactForms" href={error} />
           )}
           <div className="pt-3">
             <motion.button
@@ -316,16 +320,24 @@ function InfluencerForm({ t, onSuccess }: { t: ReturnType<typeof useTranslations
   };
 
   const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const onSubmit = async (data: InfluencerFormData) => {
     setSubmitting(true);
-    setError(false);
+    setError(null);
     try {
       await submitForm('influencer', { ...data, collabType: selectedCollabTypes }, locale);
       onSuccess();
     } catch {
-      setError(true);
+      setError(contactEmailDraft(t('influencer.title'), [
+        [t('influencer.fields.brand'), data.brand],
+        [t('influencer.fields.contact'), data.contact],
+        [t('influencer.fields.email'), data.email],
+        [t('influencer.fields.collabType'), selectedCollabTypes.map(value => t(`influencer.collab_options.${value}`)).join(', ')],
+        [t('influencer.fields.platform'), data.platform ? t(`influencer.platform_options.${data.platform}`) : ''],
+        [t('influencer.fields.budget'), data.budget ? t(`influencer.budget_options.${data.budget}`) : ''],
+        [t('influencer.fields.message'), data.message || ''],
+      ]));
     } finally {
       setSubmitting(false);
     }
@@ -450,7 +462,7 @@ function InfluencerForm({ t, onSuccess }: { t: ReturnType<typeof useTranslations
 
           <FormNotice namespace="contactForms" />
           {error && (
-            <p role="alert" className="text-red-700 text-sm text-center">{t('validation.submit_error')}</p>
+            <DeliveryFallback namespace="contactForms" href={error} />
           )}
           <div className="pt-2">
             <GlossyButton type="submit" variant="full" disabled={submitting}>

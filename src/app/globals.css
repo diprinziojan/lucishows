@@ -443,20 +443,12 @@ html {
   initial-value: 0deg;
 }
 
-/* Readable controls, anchored sections and manually scrollable carousels. */
+/* Readable controls and anchored sections. */
 section[id] { scroll-margin-top: 125px; }
 :where(a, button, input, select, textarea, [tabindex]):focus-visible {
   outline: 3px solid #92234e;
   outline-offset: 3px;
 }
-.marquee-container { overflow-x: auto; scrollbar-width: thin; }
-.marquee-container:hover .marquee-track,
-.marquee-container:focus-within .marquee-track { animation-play-state: paused; }
-.marquee-container[data-paused="true"] .marquee-track {
-  animation: none;
-  transform: none;
-}
-.marquee-container[data-paused="true"] .marquee-duplicate { display: none; }
 .form-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 @media (max-width: 767px) {
   section[id] { scroll-margin-top: 95px; }
@@ -464,11 +456,9 @@ section[id] { scroll-margin-top: 125px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html, html.scroll-smooth { scroll-behavior: auto; }
-  *, *::before, *::after {
+  *:not(.marquee-track), *::before, *::after {
     animation: none !important;
     transition-duration: 0.01ms !important;
   }
-  .marquee-track { transform: none !important; }
-  .marquee-duplicate, .marquee-control { display: none; }
   .hero-blob { will-change: auto; }
 }
