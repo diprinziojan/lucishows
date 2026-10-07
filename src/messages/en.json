@@ -1,30 +1,34 @@
 {
   "nav": {
-    "brand": "Luciana",
+    "brand": "Luciana López",
     "cta": "REQUEST PROPOSAL",
-    "about": "About me",
+    "about": "Luciana López",
     "packs": "Packs",
     "results": "Results",
     "services": "Services",
     "contact": "Contact",
-    "faq": "FAQ"
+    "faq": "FAQ",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "menu": "Navigation menu"
   },
   "hero": {
-    "badge": "{spots} spots available",
+    "badge": "Tailored proposals for your business",
     "heading_1": "The",
     "heading_highlight": "digital marketing",
     "heading_2": "agency that turns brands into",
     "heading_scramble": "leaders.",
     "subheading": "Strategy, content, and real results for brands that are ready to grow",
-    "cta": "REQUEST PROPOSAL"
+    "cta": "REQUEST PROPOSAL",
+    "imageAlt": "Luciana López, content creator"
   },
   "brands": {
     "heading": "Brands that trust us"
   },
   "intro": {
-    "heading_before": "About ",
-    "heading_highlight": "me",
-    "p1": "I'm Luciana López, a content creator and digital professional specializing in communication, <highlight>brand presence</highlight>, and social media strategies.",
+    "heading_before": "Luciana ",
+    "heading_highlight": "López",
+    "p1": "Content creator and digital professional specialising in communication, <highlight>brand presence</highlight> and social media strategies.",
     "p2": "Throughout my career I've worked with different companies, events, and projects, combining social media visibility with promotional actions that generate <highlight>real impact</highlight> and audience connection. My approach is based on a polished image, clear communication, and professional execution in every collaboration.",
     "p3": "Currently, my work is divided into two main areas: collaborations with Luci Shows and <highlight>digital marketing</highlight> services for businesses looking to grow and establish their presence online.",
     "pillars": [
@@ -40,7 +44,8 @@
         "title": "Community",
         "text": "We connect your brand with real audiences through authentic content and collaborations with massive reach."
       }
-    ]
+    ],
+    "imageAlt": "Luciana López working on content creation"
   },
   "results": {
     "heading_before": "Results that speak ",
@@ -58,18 +63,53 @@
     },
     "carousel_description": "We've worked with international companies across diverse industries, both with Luciana personally, reaching over 5 million followers on social media, and through our agency providing social media management, SEO, and high-converting web development.",
     "cards": [
-      { "metric": "+340%", "label": "Follower growth" },
-      { "metric": "ROI 8x", "label": "Return on investment" },
-      { "metric": "+2.5K", "label": "Leads generated" },
-      { "metric": "80.8%", "label": "Reels share rate" },
-      { "metric": "+190%", "label": "Engagement rate" },
-      { "metric": "1.5M", "label": "Monthly reach" }
+      {
+        "metric": "+340%",
+        "label": "Follower growth"
+      },
+      {
+        "metric": "ROI 8x",
+        "label": "Return on investment"
+      },
+      {
+        "metric": "+2.5K",
+        "label": "Leads generated"
+      },
+      {
+        "metric": "80.8%",
+        "label": "Reels share rate"
+      },
+      {
+        "metric": "+190%",
+        "label": "Engagement rate"
+      },
+      {
+        "metric": "1.5M",
+        "label": "Monthly reach"
+      }
+    ],
+    "portraitAlts": [
+      "Luciana López follower statistics",
+      "TikTok account statistics",
+      "TikTok video views",
+      "Facebook account statistics",
+      "TikTok content performance",
+      "TikTok content interactions",
+      "TikTok statistics overview"
+    ],
+    "landscapeAlts": [
+      "Search engine performance statistics",
+      "Facebook reach statistics",
+      "Backlink statistics",
+      "Campaign results overview"
     ]
   },
   "viralReels": {
     "heading_before": "We capture ",
     "heading_highlight": "your attention",
-    "subheading": "Viral content that connects with millions of people"
+    "subheading": "Viral content that connects with millions of people",
+    "play": "Play video {number}",
+    "pause": "Pause video {number}"
   },
   "pricing": {
     "heading_before": "Our ",
@@ -252,11 +292,21 @@
       "required": "This field is required",
       "invalid_email": "Please enter a valid email",
       "submit_error": "Failed to send. Please try again."
+    },
+    "privacyNotice": "We will use your details to respond to your request. Read our ",
+    "privacyLink": "privacy policy",
+    "sending": "Sending…",
+    "placeholders": {
+      "company": "Your company",
+      "brand": "Your brand",
+      "contact": "Full name",
+      "email": "name@company.com",
+      "sector": "Hospitality, retail…"
     }
   },
   "faq": {
-    "heading_before": "Frequently Asked ",
-    "heading_highlight": "Questions",
+    "heading_before": "Frequently asked ",
+    "heading_highlight": "questions",
     "cta": "Have more questions? Contact us",
     "items": [
       {
@@ -265,11 +315,11 @@
       },
       {
         "question": "How does a collaboration with Luci Shows work?",
-        "answer": "We define goals together, create the brief, produce authentic content and publish it with maximum reach. Every collaboration includes a results report."
+        "answer": "Together, we define the goals and details of the collaboration, produce the content and agree on publication. Each collaboration includes a results report."
       },
       {
-        "question": "How long until I see results?",
-        "answer": "First results are usually visible in 2-4 weeks. A complete organic and paid growth strategy shows its real impact from the second or third month."
+        "question": "How long does it take to see results?",
+        "answer": "Timelines depend on the service, your industry and your business’s starting point. Advertising can provide data in the first few weeks, while organic growth and search engine rankings usually take several months. We track progress and refine the strategy throughout, without guaranteeing specific results within a fixed timeframe."
       },
       {
         "question": "What's the minimum budget to work with you?",
@@ -284,16 +334,16 @@
         "answer": "Each report includes reach, impressions, engagement rate, follower growth, web traffic, conversions, and estimated ROI for each campaign."
       },
       {
-        "question": "What does the onboarding process look like?",
-        "answer": "We start with a briefing meeting to understand your brand, goals, and audience. Then we design the strategy and content calendar. The whole process takes 5-7 business days."
+        "question": "How do we start working together?",
+        "answer": "First, we talk to you to understand your business, goals and target audience. We then present a proposal with the services and terms. Once accepted, we organise the materials we need, define the strategy and agree on a work schedule."
       },
       {
         "question": "Can I cancel the service at any time?",
-        "answer": "We work with renewable monthly contracts. You can cancel with 15 days' notice before the next billing cycle, no penalties."
+        "answer": "There is no minimum-term commitment. For monthly services, you can cancel by giving at least 15 days’ notice before the next renewal, with no cancellation penalty. One-off projects follow the terms agreed in their quotation."
       },
       {
         "question": "How does payment work?",
-        "answer": "For agency services we charge monthly in advance. For influencer collaborations, 50% on confirmation and 50% on delivery. We accept bank transfers."
+        "answer": "The initial setup fee is paid in two parts: 50% at the start and the remaining 50% when that phase is completed. Monthly services are paid in advance. All payments are made by bank transfer and accompanied by an invoice. Fees and terms for one-off projects and collaborations are detailed in the proposal before work begins."
       },
       {
         "question": "Can I see examples of previous work?",
@@ -322,14 +372,15 @@
       "results": "Results",
       "faq": "FAQs",
       "contact": "Contact",
-      "about": "About Luciana",
+      "about": "Luciana López",
       "portfolio": "Portfolio",
       "privacy": "Privacy Policy",
       "terms": "Terms of Service",
       "cookies": "Cookies"
     },
     "copyright": "© 2026 Luciana. All rights reserved.",
-    "credit": "Designed by Fast Horizons"
+    "credit": "Designed by Fast Horizons",
+    "location": "Barcelona, Spain"
   },
   "language": {
     "switch_label": "ES"
@@ -372,7 +423,7 @@
       "intro": "In compliance with the General Data Protection Regulation (GDPR) EU 2016/679, the Spanish Organic Law 3/2018 on the Protection of Personal Data and the guarantee of digital rights (LOPD-GDD), and Law 34/2002 on Information Society Services and Electronic Commerce (LSSI-CE), we inform you of the following:",
       "controller": {
         "heading": "1. Data Controller",
-        "text": "Luciana López Agency\nLocation: Barcelona, Spain\nEmail: management@lucishows.com\nPhone: +34 601 16 62 57\nWebsite: lucishows.com"
+        "text": "Luciana López Agency\nLocation: Barcelona, Spain\nEmail: management@lucishows.com\nPhone: +34 601 16 62 57\nWebsite: lucianalopez.es"
       },
       "dataCollected": {
         "heading": "2. Data Collected",
@@ -408,7 +459,7 @@
         "heading": "5. Recipients",
         "text": "Your data may be shared with the following recipients:",
         "items": [
-          "Netlify, Inc. — as hosting and form processing provider (located in the U.S., adhering to the EU-U.S. Data Privacy Framework)",
+          "Cloudflare, as the hosting provider, and Resend, as the form email delivery provider, may process the data needed to provide these services.",
           "No data will be transferred to third parties except when required by law"
         ]
       },
@@ -436,10 +487,10 @@
     },
     "terms": {
       "title": "Terms of Service",
-      "intro": "This legal notice regulates the use of the website lucishows.com, owned by Luciana López Agency.",
+      "intro": "This legal notice regulates the use of the website lucianalopez.es, owned by Luciana López Agency.",
       "owner": {
         "heading": "1. Owner Identification",
-        "text": "Luciana López Agency\nLocation: Barcelona, Spain\nEmail: management@lucishows.com\nPhone: +34 601 16 62 57\nWebsite: lucishows.com"
+        "text": "Luciana López Agency\nLocation: Barcelona, Spain\nEmail: management@lucishows.com\nPhone: +34 601 16 62 57\nWebsite: lucianalopez.es"
       },
       "purpose": {
         "heading": "2. Purpose and Scope",
@@ -558,10 +609,20 @@
     "success_message": "We've received your request. We'll get in touch with you as soon as possible.",
     "error": "There was an error. Please try again.",
     "required": "This field is required",
-    "invalid_email": "Please enter a valid email"
+    "invalid_email": "Please enter a valid email",
+    "privacyNotice": "We will use your details to respond to your request. Read our ",
+    "privacyLink": "privacy policy",
+    "sending": "Sending…"
   },
   "metadata": {
-    "title": "Luciana | Digital Marketing Agency & Influencer",
-    "description": "Digital marketing agency + influencer. Strategy, content, and real results for brands ready to grow."
+    "title": "Luciana López | Digital Marketing & Content Creation",
+    "description": "Digital marketing strategy, social media management, web design and collaborations with Luciana López. Request a proposal for your business."
+  },
+  "marquee": {
+    "pause": "Pause movement",
+    "resume": "Resume movement",
+    "brands": "Brands we have worked with",
+    "portrait": "Social media statistics",
+    "landscape": "Campaign and search performance statistics"
   }
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useTranslations, useLocale } from 'next-intl';
@@ -22,6 +22,35 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { scrollY } = useScroll();
+  const menuButton = useRef<HTMLButtonElement>(null);
+  const drawer = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const focusable = () => Array.from(drawer.current?.querySelectorAll<HTMLElement>('a[href], button:not([disabled])') || []);
+    focusable()[0]?.focus();
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') { event.preventDefault(); setMenuOpen(false); }
+      if (event.key === 'Tab') {
+        const elements = focusable();
+        const first = elements[0], last = elements[elements.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+      }
+    };
+    const desktop = window.matchMedia('(min-width: 768px)');
+    const closeOnDesktop = () => { if (desktop.matches) setMenuOpen(false); };
+    document.addEventListener('keydown', handleKey);
+    desktop.addEventListener('change', closeOnDesktop);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', handleKey);
+      desktop.removeEventListener('change', closeOnDesktop);
+      menuButton.current?.focus();
+    };
+  }, [menuOpen]);
 
   const getHref = (hash: string) => `/${locale}${hash}`;
 
@@ -43,8 +72,12 @@ export function Navbar() {
           <div className="flex items-center gap-3 overflow-visible">
             <button
               onClick={() => setMenuOpen(true)}
-              className="md:hidden flex items-center justify-center w-9 h-9 rounded-full bg-white/50 border border-gray-200 text-brand-text hover:bg-white/70 transition-colors"
-              aria-label="Open menu"
+              className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white/50 border border-gray-200 text-brand-text hover:bg-white/70 transition-colors"
+              ref={menuButton}
+              type="button"
+              aria-label={t('openMenu')}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-navigation"
             >
               <List size={22} weight="bold" />
             </button>
@@ -99,6 +132,11 @@ export function Navbar() {
 
             {/* Drawer */}
             <motion.div
+              ref={drawer}
+              id="mobile-navigation"
+              role="dialog"
+              aria-modal="true"
+              aria-label={t('menu')}
               className="fixed top-0 left-0 bottom-0 z-[70] w-[280px] bg-white shadow-xl flex flex-col overflow-hidden"
               initial={{ x: '-100%' }}
               animate={{ x: 0 }}
@@ -117,7 +155,8 @@ export function Navbar() {
                 <button
                   onClick={() => setMenuOpen(false)}
                   className="w-8 h-8 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center text-brand-text hover:bg-gray-100 transition-colors"
-                  aria-label="Close menu"
+                  type="button"
+                  aria-label={t('closeMenu')}
                 >
                   <X size={18} weight="bold" />
                 </button>

@@ -21,6 +21,7 @@ export function Intro() {
           <AnimatedHeading
             before={t('heading_before')}
             highlight={t('heading_highlight')}
+            lineBreak={false}
             className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-brand-text mb-4"
           />
           <div className="font-body text-brand-text-muted text-sm sm:text-base md:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0 space-y-4">
@@ -28,7 +29,7 @@ export function Intro() {
               <p key={key}>
                 {t.rich(key, {
                   highlight: (chunks) => (
-                    <span className="text-brand-cta font-semibold">
+                    <span className="text-brand-ink font-semibold">
                       {chunks}
                     </span>
                   ),
@@ -42,7 +43,7 @@ export function Intro() {
           <div className="rounded-2xl overflow-hidden shadow-xl max-w-[280px] sm:max-w-[320px] lg:max-w-[400px]">
             <Image
               src="/images/about-phone.jpg"
-              alt="Luciana"
+              alt={t('imageAlt')}
               width={400}
               height={500}
               className="w-full h-auto"

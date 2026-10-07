@@ -9,6 +9,13 @@ La estructura de public está corregida y el proyecto compila con OpenNext.
 5. Directorio raíz: raíz del repositorio.
 6. Añadir el dominio lucianalopez.es al Worker cuando el despliegue esté listo.
 
-Los formularios requieren el secreto RESEND_API_KEY. El código actual envía las solicitudes a pedroansiofuentes@gmail.com y utiliza management@lucishows.com como dirección de contacto. Estas direcciones se han conservado; conviene confirmar su vigencia antes de activar el formulario.
+## Correo de los formularios
 
-Validación: compilación de Next.js y OpenNext completada; comprobación wrangler deploy --dry-run completada. No se ha realizado una publicación real.
+- Las solicitudes de agencia, colaboraciones y propuestas llegan a `lucianalopezfb@gmail.com`. El botón del pack a medida abre el cliente de correo dirigido a esa misma dirección.
+- En el Worker `lucishows`, configurar el secreto `RESEND_API_KEY` con una clave válida de Resend. No guardar claves en GitHub.
+- Verificar un dominio remitente en Resend y configurar `CONTACT_FROM_EMAIL` con una dirección de ese dominio, por ejemplo `Luciana López <web@lucianalopez.es>` si ese dominio se ha verificado. La dirección de Gmail es el destinatario, no el remitente.
+- Mientras no se configure un remitente de producción, se conserva `onboarding@resend.dev`, que tiene restricciones de prueba. Las confirmaciones al visitante solo se activan con `CONTACT_FROM_EMAIL`.
+- Las confirmaciones del formulario de propuesta permiten responder a `lucianalopezfb@gmail.com`. Si una confirmación falla, una solicitud ya entregada sigue mostrándose como enviada.
+- El correo público de contacto `management@lucishows.com` se conserva.
+
+La configuración de Resend y la entrega real deben verificarse en la cuenta. Las pruebas locales utilizan un proveedor simulado y no envían correos reales.

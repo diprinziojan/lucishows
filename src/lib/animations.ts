@@ -28,7 +28,7 @@ export const scaleIn: Variants = {
 export const staggerContainer: Variants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.15, delayChildren: 0.1 }
+    transition: { staggerChildren: 0.08, delayChildren: 0.05 }
   }
 };
 
@@ -57,7 +57,7 @@ export const wordPull: Variants = {
 export const wordContainer: Variants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.1, delayChildren: 0.15 },
+    transition: { staggerChildren: 0.06, delayChildren: 0.05 },
   },
 };
 
@@ -75,6 +75,6 @@ export const subtitleReveal: Variants = {
     opacity: 1,
     y: 0,
     filter: 'blur(0px)',
-    transition: { duration: 0.7, delay: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.4, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] },
   },
 };

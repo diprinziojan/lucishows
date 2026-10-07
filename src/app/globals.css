@@ -11,6 +11,7 @@
   --color-brand-cta-hover: #F97BAA;
   --color-brand-cta-dark: #E8739E;
   --color-brand-text: #1A1A1A;
+  --color-brand-ink: #9A2454;
   --color-brand-text-muted: #6B5B63;
   --color-brand-text-light: #FFFFFF;
   --color-brand-highlight: #FB96BC;
@@ -106,7 +107,7 @@ body {
     inset 0 -2px 4px rgba(200, 80, 130, 0.15),
     0 4px 14px rgba(251, 150, 188, 0.3),
     0 1px 3px rgba(0, 0, 0, 0.06);
-  color: white;
+  color: #1A1A1A;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 1.5px;
@@ -440,4 +441,34 @@ html {
   syntax: "<angle>";
   inherits: false;
   initial-value: 0deg;
+}
+
+/* Readable controls, anchored sections and manually scrollable carousels. */
+section[id] { scroll-margin-top: 125px; }
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid #92234e;
+  outline-offset: 3px;
+}
+.marquee-container { overflow-x: auto; scrollbar-width: thin; }
+.marquee-container:hover .marquee-track,
+.marquee-container:focus-within .marquee-track { animation-play-state: paused; }
+.marquee-container[data-paused="true"] .marquee-track {
+  animation: none;
+  transform: none;
+}
+.marquee-container[data-paused="true"] .marquee-duplicate { display: none; }
+.form-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+@media (max-width: 767px) {
+  section[id] { scroll-margin-top: 95px; }
+  .hero-blob { animation: none; will-change: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html, html.scroll-smooth { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+  .marquee-track { transform: none !important; }
+  .marquee-duplicate, .marquee-control { display: none; }
+  .hero-blob { will-change: auto; }
 }

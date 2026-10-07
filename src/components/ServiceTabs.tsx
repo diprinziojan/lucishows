@@ -1,55 +1,13 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { CheckCircle } from '@phosphor-icons/react';
 import { GlossyButton } from './ui/GlossyButton';
 import { fadeUp, tabImageSwap, staggerContainer } from '@/lib/animations';
-
-function FollowerCounter({ formatted, locale }: { formatted: string; locale: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true });
-  const [display, setDisplay] = useState('0');
-  const hasAnimated = useRef(false);
-  const target = 5000000;
-  const separator = locale === 'es' ? '.' : ',';
-
-  useEffect(() => {
-    if (!isInView || hasAnimated.current) return;
-    hasAnimated.current = true;
-
-    const duration = 2000;
-    const startTime = performance.now();
-
-    const formatNum = (n: number) => {
-      const str = Math.floor(n).toString();
-      const parts: string[] = [];
-      for (let i = str.length; i > 0; i -= 3) {
-        parts.unshift(str.slice(Math.max(0, i - 3), i));
-      }
-      return '+' + parts.join(separator);
-    };
-
-    const animate = (now: number) => {
-      const elapsed = now - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setDisplay(formatNum(target * eased));
-      if (progress < 1) requestAnimationFrame(animate);
-      else setDisplay(formatted);
-    };
-
-    requestAnimationFrame(animate);
-  }, [isInView, formatted, separator]);
-
-  return (
-    <span ref={ref} className="inline-block font-heading font-bold text-brand-cta animate-pulse-glow rounded-lg px-1">
-      {display}
-    </span>
-  );
-}
+import { AnimatedCounter } from './ui/AnimatedCounter';
 
 const tabConfig = {
   agency: { bulletCount: 7, image: '/images/desk-laptop.jpg' },
@@ -89,9 +47,10 @@ export function ServiceTabs() {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
+              aria-pressed={activeTab === tab}
               className={`px-5 py-2.5 sm:px-6 sm:py-3 rounded-full font-body font-semibold text-xs sm:text-sm transition-all duration-300 ${
                 activeTab === tab
-                  ? 'bg-brand-cta text-white shadow-md shadow-brand-cta/20'
+                  ? 'bg-brand-cta text-brand-text shadow-md shadow-brand-cta/20'
                   : 'bg-white border border-gray-200 text-brand-text-muted hover:border-brand-cta/40'
               }`}
             >
@@ -133,10 +92,7 @@ export function ServiceTabs() {
               {activeTab === 'influencer' ? (
                 <p className="font-body text-brand-text-muted text-sm sm:text-base mb-5 sm:mb-6">
                   {t('tabs.influencer.description_before')}{' '}
-                  <FollowerCounter
-                    formatted={t('tabs.influencer.description_number')}
-                    locale={t('tabs.influencer.description_number').includes('.') ? 'es' : 'en'}
-                  />{' '}
+                  <AnimatedCounter target={5000000} prefix="+" />{' '}
                   {t('tabs.influencer.description_after')}
                 </p>
               ) : (

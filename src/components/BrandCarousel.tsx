@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import { Marquee } from './ui/Marquee';
 
 const brands: { name: string; src: string; className?: string }[] = [
   { name: 'Cupra', src: '/images/brands/cupra (1).svg' },
@@ -14,16 +15,14 @@ const brands: { name: string; src: string; className?: string }[] = [
 
 export function BrandCarousel() {
   const t = useTranslations('brands');
-  const row = [...brands, ...brands, ...brands, ...brands];
 
   return (
     <div className="relative z-10 py-8 md:py-10" style={{ background: 'linear-gradient(180deg, #FCD5E0 0%, #FEE7ED 50%, #FFF5F8 100%)' }}>
       <p className="text-center text-brand-text-muted text-xs uppercase tracking-[0.25em] font-body font-medium mb-6">
         {t('heading')}
       </p>
-      <div className="marquee-container">
-        <div className="flex animate-marquee gap-20 items-center">
-          {row.map((brand, i) => (
+      <Marquee label="brands" animation="animate-marquee" gapClass="gap-20 pr-20">
+          {brands.map((brand, i) => (
             <div
               key={i}
               className={`flex-shrink-0 relative grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300 ${brand.className || 'h-10 w-28'}`}
@@ -37,8 +36,7 @@ export function BrandCarousel() {
               />
             </div>
           ))}
-        </div>
-      </div>
+      </Marquee>
     </div>
   );
 }

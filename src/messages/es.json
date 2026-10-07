@@ -1,30 +1,34 @@
 {
   "nav": {
-    "brand": "Luciana",
+    "brand": "Luciana López",
     "cta": "SOLICITAR PROPUESTA",
-    "about": "Sobre mí",
+    "about": "Luciana López",
     "packs": "Packs",
     "results": "Resultados",
     "services": "Servicios",
     "contact": "Contacto",
-    "faq": "FAQ"
+    "faq": "FAQ",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "menu": "Menú de navegación"
   },
   "hero": {
-    "badge": "{spots} plazas disponibles",
+    "badge": "Propuestas a medida para tu negocio",
     "heading_1": "La agencia de",
     "heading_highlight": "marketing digital",
     "heading_2": "que convierte marcas en",
     "heading_scramble": "referentes.",
     "subheading": "Estrategia, contenido y resultados reales para marcas que quieren crecer de verdad",
-    "cta": "SOLICITAR PROPUESTA"
+    "cta": "SOLICITAR PROPUESTA",
+    "imageAlt": "Luciana López, creadora de contenido"
   },
   "brands": {
     "heading": "Marcas que confían en nosotros"
   },
   "intro": {
-    "heading_before": "Sobre ",
-    "heading_highlight": "mí",
-    "p1": "Soy Luciana López, creadora de contenido y profesional del entorno digital, especializada en comunicación, <highlight>presencia de marca</highlight> y estrategias en redes sociales.",
+    "heading_before": "Luciana ",
+    "heading_highlight": "López",
+    "p1": "Creadora de contenido y profesional del entorno digital, especializada en comunicación, <highlight>presencia de marca</highlight> y estrategias en redes sociales.",
     "p2": "A lo largo de mi trayectoria he trabajado con diferentes empresas, eventos y proyectos, combinando visibilidad en redes con acciones promocionales que generan <highlight>impacto real</highlight> y conexión con el público. Mi enfoque se basa en una imagen cuidada, una comunicación clara y una ejecución profesional en cada colaboración.",
     "p3": "Actualmente, mi actividad se divide en dos líneas principales: colaboraciones con Luci Shows y servicios de <highlight>marketing digital</highlight> para empresas que buscan crecer y posicionarse en el entorno online.",
     "pillars": [
@@ -34,42 +38,78 @@
       },
       {
         "title": "Resultados",
-        "text": "Cada acción se mide. Informes transparentes con métricas reales de crecimiento, engagement y ROI."
+        "text": "Cada acción se mide. Informes transparentes con métricas reales de crecimiento, interacciones y retorno de la inversión."
       },
       {
         "title": "Comunidad",
         "text": "Conectamos tu marca con audiencias reales a través de contenido auténtico y colaboraciones con alcance masivo."
       }
-    ]
+    ],
+    "imageAlt": "Luciana López trabajando en la creación de contenido"
   },
   "results": {
     "heading_before": "Resultados que hablan ",
     "heading_highlight": "por sí solos",
-    "subheading": "Nuestras campañas no solo generan contenido, generan impacto medible y ROI real.",
+    "subheading": "Nuestras campañas no solo generan contenido, generan impacto medible y retorno de la inversión.",
     "stats": {
       "followers": "Seguidores en redes sociales",
       "followers_value": "+5M",
       "views": "Visualizaciones (30 días)",
       "views_value": "+100M",
-      "reach": "Alcance no-seguidores",
-      "reach_value": "64.5%",
+      "reach": "Alcance entre personas que no te siguen",
+      "reach_value": "64,5 %",
       "campaigns": "Campañas gestionadas",
       "campaigns_value": "150+"
     },
     "carousel_description": "Hemos trabajado con empresas internacionales de distintos sectores, tanto con Luciana de forma personal, alcanzando más de 5 millones de seguidores en redes sociales, como desde la agencia prestando servicios de gestión de redes sociales, SEO y desarrollo de webs que convierten.",
     "cards": [
-      { "metric": "+340%", "label": "Crecimiento seguidores" },
-      { "metric": "ROI 8x", "label": "Retorno inversión" },
-      { "metric": "+2.5K", "label": "Leads generados" },
-      { "metric": "80.8%", "label": "Share en Reels" },
-      { "metric": "+190%", "label": "Engagement rate" },
-      { "metric": "1.5M", "label": "Alcance mensual" }
+      {
+        "metric": "+340 %",
+        "label": "Crecimiento de seguidores"
+      },
+      {
+        "metric": "ROI 8x",
+        "label": "Retorno de la inversión"
+      },
+      {
+        "metric": "+2,5K",
+        "label": "Contactos potenciales generados"
+      },
+      {
+        "metric": "80,8 %",
+        "label": "Porcentaje de Reels compartidos"
+      },
+      {
+        "metric": "+190 %",
+        "label": "Engagement rate"
+      },
+      {
+        "metric": "1,5M",
+        "label": "Alcance mensual"
+      }
+    ],
+    "portraitAlts": [
+      "Estadísticas de seguidores de Luciana López",
+      "Estadísticas de la cuenta de TikTok",
+      "Visualizaciones de vídeos en TikTok",
+      "Estadísticas de la cuenta de Facebook",
+      "Rendimiento de contenido en TikTok",
+      "Interacciones de contenido en TikTok",
+      "Resumen de estadísticas de TikTok"
+    ],
+    "landscapeAlts": [
+      "Estadísticas de posicionamiento en buscadores",
+      "Estadísticas de alcance en Facebook",
+      "Estadísticas de enlaces entrantes",
+      "Resumen de resultados de una campaña"
     ]
   },
   "viralReels": {
     "heading_before": "Captamos ",
     "heading_highlight": "tu atención",
-    "subheading": "Contenido viral que conecta con millones de personas"
+    "subheading": "Contenido viral que conecta con millones de personas",
+    "play": "Reproducir vídeo {number}",
+    "pause": "Pausar vídeo {number}"
   },
   "pricing": {
     "heading_before": "Nuestros ",
@@ -91,7 +131,7 @@
           "Respuesta a mensajes y comentarios",
           "Optimización de perfiles",
           "Informe mensual de resultados",
-          "Presencialidad de nuestro equipo técnico"
+          "Atención presencial de nuestro equipo"
         ]
       },
       "crecimiento": {
@@ -102,7 +142,7 @@
           "SEO básico (optimización mensual)",
           "Estrategia de contenido personalizada",
           "Reunión estratégica mensual",
-          "Presencialidad de nuestro equipo técnico"
+          "Atención presencial de nuestro equipo"
         ]
       },
       "dominio": {
@@ -114,10 +154,10 @@
           "Campañas en Meta + Google Ads",
           "SEO completo (técnico + contenidos)",
           "Diseño y optimización continua de web",
-          "Email marketing + embudos de venta",
+          "Marketing por correo electrónico + embudos de venta",
           "Estrategia personalizada semanal",
           "Reuniones estratégicas semanales",
-          "Presencialidad de nuestro equipo técnico"
+          "Atención presencial de nuestro equipo"
         ]
       }
     },
@@ -126,14 +166,14 @@
       "description": "Elige exactamente los servicios que necesitas. Sin compromisos, solo lo que te aporta valor.",
       "services": [
         "Gestión de redes sociales",
-        "Creación de contenido (diseño + copy)",
+        "Creación de contenido (diseño y textos)",
         "Reels y vídeo corto",
         "Campañas de Meta Ads",
         "Campañas de Google Ads",
         "SEO técnico",
         "SEO de contenidos",
         "Diseño web / landing pages",
-        "Email marketing",
+        "Marketing por correo electrónico",
         "Embudos de venta",
         "Estrategia y consultoría",
         "Colaboración con influencer"
@@ -154,7 +194,7 @@
           "Campañas de publicidad en Meta y Google Ads",
           "SEO técnico y de contenidos",
           "Diseño web y optimización de landing pages",
-          "Email marketing y automatizaciones",
+          "Marketing por correo electrónico y automatizaciones",
           "Informes mensuales detallados con métricas"
         ],
         "cta": "Solicitar propuesta agencia"
@@ -169,7 +209,7 @@
           "Posts patrocinados en feed con alcance masivo",
           "Stories interactivas con enlaces directos",
           "Reels virales con narrativa auténtica",
-          "Packs completos multi-plataforma",
+          "Packs completos multiplataforma",
           "Contenido UGC para tu marca",
           "Medición y reporte de cada campaña"
         ],
@@ -201,14 +241,14 @@
         "paid_ads": "Publicidad (Ads)",
         "seo": "SEO",
         "web_design": "Diseño web",
-        "email_mkt": "Email marketing",
+        "email_mkt": "Marketing por correo electrónico",
         "full_service": "Servicio completo"
       },
       "budget_options": {
-        "under_1000": "Menos de 1.000€/mes",
-        "1000_3000": "1.000€ – 3.000€/mes",
-        "3000_5000": "3.000€ – 5.000€/mes",
-        "5000_plus": "5.000€+/mes",
+        "under_1000": "Menos de 1.000 €/mes",
+        "1000_3000": "1.000 € – 3.000 €/mes",
+        "3000_5000": "3.000 € – 5.000 €/mes",
+        "5000_plus": "5.000 €+/mes",
         "not_sure": "Aún no lo sé"
       }
     },
@@ -234,13 +274,13 @@
         "instagram": "Instagram",
         "tiktok": "TikTok",
         "facebook": "Facebook",
-        "multi": "Multi-plataforma"
+        "multi": "Multiplataforma"
       },
       "budget_options": {
-        "under_500": "Menos de 500€",
-        "500_1000": "500€ – 1.000€",
-        "1000_3000": "1.000€ – 3.000€",
-        "3000_plus": "3.000€+",
+        "under_500": "Menos de 500 €",
+        "500_1000": "500 € – 1.000 €",
+        "1000_3000": "1.000 € – 3.000 €",
+        "3000_plus": "3.000 €+",
         "not_sure": "Aún no lo sé"
       }
     },
@@ -252,28 +292,38 @@
       "required": "Este campo es obligatorio",
       "invalid_email": "Introduce un email válido",
       "submit_error": "Error al enviar. Inténtalo de nuevo."
+    },
+    "privacyNotice": "Usaremos tus datos para responder a tu solicitud. Consulta nuestra ",
+    "privacyLink": "política de privacidad",
+    "sending": "Enviando…",
+    "placeholders": {
+      "company": "Tu empresa",
+      "brand": "Tu marca",
+      "contact": "Nombre y apellidos",
+      "email": "nombre@empresa.com",
+      "sector": "Restauración, comercio…"
     }
   },
   "faq": {
     "heading_before": "Preguntas ",
-    "heading_highlight": "Frecuentes",
+    "heading_highlight": "frecuentes",
     "cta": "¿Tienes más preguntas? Contáctanos",
     "items": [
       {
         "question": "¿Qué servicios ofrece Luciana como agencia?",
-        "answer": "Ofrecemos gestión de redes sociales, publicidad en Meta y Google Ads, SEO, diseño web, email marketing, estrategia de contenido y más. Todo integrado bajo una sola estrategia."
+        "answer": "Ofrecemos gestión de redes sociales, publicidad en Meta y Google Ads, SEO, diseño web, marketing por correo electrónico, estrategia de contenido y más. Todo integrado bajo una sola estrategia."
       },
       {
         "question": "¿Cómo funciona una colaboración con Luci Shows?",
-        "answer": "Definimos juntos los objetivos, creamos el briefing, producimos contenido auténtico y lo publicamos con máximo alcance. Cada colaboración incluye un informe de resultados."
+        "answer": "Definimos juntos los objetivos y los detalles de la colaboración, producimos el contenido y acordamos su publicación. Cada colaboración incluye un informe de resultados."
       },
       {
-        "question": "¿Cuánto tarda en verse resultados?",
-        "answer": "Los primeros resultados suelen verse en 2-4 semanas. Una estrategia completa de crecimiento orgánico y pagado muestra su impacto real a partir del segundo o tercer mes."
+        "question": "¿Cuánto tiempo se tarda en ver resultados?",
+        "answer": "Los plazos dependen del servicio, del sector y del punto de partida de tu negocio. La publicidad puede aportar datos desde las primeras semanas, mientras que el crecimiento orgánico y el posicionamiento en buscadores suelen requerir varios meses. Medimos la evolución y ajustamos la estrategia durante el proceso, sin garantizar resultados concretos en un plazo fijo."
       },
       {
         "question": "¿Cuál es el presupuesto mínimo para trabajar con vosotros?",
-        "answer": "Nuestro pack más accesible arranca en un rango de 300-600€/mes. Para campañas de influencer el presupuesto varía según el tipo de contenido y alcance deseado."
+        "answer": "Nuestro pack más accesible arranca en un rango de 300-600 €/mes. Para campañas de influencer el presupuesto varía según el tipo de contenido y alcance deseado."
       },
       {
         "question": "¿Trabajáis con marcas internacionales?",
@@ -281,19 +331,19 @@
       },
       {
         "question": "¿Qué métricas incluyen los informes?",
-        "answer": "Cada informe incluye alcance, impresiones, engagement rate, crecimiento de seguidores, tráfico web, conversiones y ROI estimado de cada campaña."
+        "answer": "Cada informe incluye alcance, impresiones, tasa de interacción, crecimiento de seguidores, tráfico web, conversiones y retorno de la inversión estimado de cada campaña."
       },
       {
-        "question": "¿Cómo es el proceso de onboarding?",
-        "answer": "Empezamos con una reunión de briefing para entender tu marca, objetivos y público. Después diseñamos la estrategia y un calendario de contenido. Todo el proceso tarda 5-7 días hábiles."
+        "question": "¿Cómo empezamos a trabajar juntos?",
+        "answer": "Primero hablamos contigo para conocer tu negocio, tus objetivos y el público al que quieres llegar. Después te presentamos una propuesta con los servicios y las condiciones. Una vez aceptada, organizamos los materiales necesarios, definimos la estrategia y acordamos el calendario de trabajo."
       },
       {
         "question": "¿Puedo cancelar el servicio en cualquier momento?",
-        "answer": "Trabajamos con contratos mensuales renovables. Puedes cancelar con 15 días de preaviso antes del siguiente ciclo de facturación, sin penalizaciones."
+        "answer": "No hay compromiso de permanencia. En los servicios mensuales, puedes solicitar la cancelación avisando con al menos 15 días de antelación a la siguiente renovación, sin penalización por cancelar. Los proyectos puntuales se rigen por las condiciones acordadas en su presupuesto."
       },
       {
-        "question": "¿Cómo es el proceso de pago?",
-        "answer": "Para servicios de agencia cobramos mensualmente por adelantado. Para colaboraciones con influencer, 50% al confirmar y 50% a la entrega. Aceptamos transferencia bancaria y Bizum."
+        "question": "¿Cómo se realizan los pagos?",
+        "answer": "El coste de la puesta en marcha inicial se abona en dos partes: un 50 % al comenzar y el 50 % restante al finalizar esa fase. Los servicios mensuales se cobran por adelantado. Todos los pagos se realizan mediante transferencia bancaria y con su correspondiente factura. Los importes y las condiciones de los proyectos puntuales y las colaboraciones se detallan en la propuesta antes de empezar."
       },
       {
         "question": "¿Puedo ver ejemplos de trabajos anteriores?",
@@ -305,7 +355,7 @@
       },
       {
         "question": "¿Qué diferencia a Luciana de otras agencias?",
-        "answer": "Combinamos servicios de agencia profesional con el poder de una influencer de +5M seguidores. Eso significa estrategia + alcance real en un solo partner."
+        "answer": "Combinamos servicios de agencia profesional con el poder de una influencer de +5M seguidores. Eso significa estrategia + alcance real con un solo equipo."
       }
     ]
   },
@@ -320,16 +370,17 @@
     "links": {
       "packs": "Packs",
       "results": "Resultados",
-      "faq": "FAQs",
+      "faq": "Preguntas frecuentes",
       "contact": "Contacto",
-      "about": "Sobre Luciana",
+      "about": "Luciana López",
       "portfolio": "Portfolio",
       "privacy": "Privacidad",
       "terms": "Aviso Legal",
       "cookies": "Cookies"
     },
     "copyright": "© 2026 Luciana. Todos los derechos reservados.",
-    "credit": "Diseñado por Fast Horizons"
+    "credit": "Diseñado por Fast Horizons",
+    "location": "Barcelona, España"
   },
   "language": {
     "switch_label": "EN"
@@ -355,7 +406,7 @@
         },
         {
           "title": "Resultados",
-          "text": "Cada acción se mide. Informes transparentes con métricas reales de crecimiento, engagement y ROI."
+          "text": "Cada acción se mide. Informes transparentes con métricas reales de crecimiento, interacciones y retorno de la inversión."
         },
         {
           "title": "Comunidad",
@@ -372,7 +423,7 @@
       "intro": "En cumplimiento del Reglamento General de Protección de Datos (RGPD) UE 2016/679, la Ley Orgánica 3/2018 de Protección de Datos Personales y garantía de los derechos digitales (LOPD-GDD), y la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), le informamos de lo siguiente:",
       "controller": {
         "heading": "1. Responsable del tratamiento",
-        "text": "Luciana López Agency\nUbicación: Barcelona, España\nEmail: management@lucishows.com\nTeléfono: +34 601 16 62 57\nWeb: lucishows.com"
+        "text": "Luciana López Agency\nUbicación: Barcelona, España\nEmail: management@lucishows.com\nTeléfono: +34 601 16 62 57\nWeb: lucianalopez.es"
       },
       "dataCollected": {
         "heading": "2. Datos recopilados",
@@ -408,7 +459,7 @@
         "heading": "5. Destinatarios",
         "text": "Sus datos podrán ser comunicados a los siguientes destinatarios:",
         "items": [
-          "Netlify, Inc. — como proveedor de alojamiento y procesamiento de formularios (ubicado en EE.UU., adherido al marco EU-U.S. Data Privacy Framework)",
+          "Cloudflare, como proveedor de alojamiento, y Resend, como proveedor del envío de correos de los formularios, pueden procesar los datos necesarios para prestar estos servicios.",
           "No se realizarán cesiones de datos a terceros salvo obligación legal"
         ]
       },
@@ -436,10 +487,10 @@
     },
     "terms": {
       "title": "Términos de Servicio",
-      "intro": "El presente aviso legal regula el uso del sitio web lucishows.com, propiedad de Luciana López Agency.",
+      "intro": "El presente aviso legal regula el uso del sitio web lucianalopez.es, propiedad de Luciana López Agency.",
       "owner": {
         "heading": "1. Identificación del titular",
-        "text": "Luciana López Agency\nUbicación: Barcelona, España\nEmail: management@lucishows.com\nTeléfono: +34 601 16 62 57\nWeb: lucishows.com"
+        "text": "Luciana López Agency\nUbicación: Barcelona, España\nEmail: management@lucishows.com\nTeléfono: +34 601 16 62 57\nWeb: lucianalopez.es"
       },
       "purpose": {
         "heading": "2. Objeto y ámbito de aplicación",
@@ -558,10 +609,20 @@
     "success_message": "Hemos recibido tu solicitud. Nos pondremos en contacto contigo a la mayor brevedad posible.",
     "error": "Hubo un error al enviar. Inténtalo de nuevo.",
     "required": "Este campo es obligatorio",
-    "invalid_email": "Introduce un email válido"
+    "invalid_email": "Introduce un email válido",
+    "privacyNotice": "Usaremos tus datos para responder a tu solicitud. Consulta nuestra ",
+    "privacyLink": "política de privacidad",
+    "sending": "Enviando…"
   },
   "metadata": {
-    "title": "Luciana | Agencia de Marketing Digital & Influencer",
-    "description": "Agencia de marketing digital + influencer. Estrategia, contenido y resultados reales para marcas que quieren crecer."
+    "title": "Luciana López | Marketing digital y creación de contenido",
+    "description": "Estrategia de marketing digital, gestión de redes sociales, diseño web y colaboraciones con Luciana López. Solicita una propuesta para tu negocio."
+  },
+  "marquee": {
+    "pause": "Detener movimiento",
+    "resume": "Reanudar movimiento",
+    "brands": "Marcas con las que hemos trabajado",
+    "portrait": "Estadísticas de redes sociales",
+    "landscape": "Ejemplos de estadísticas de campañas y posicionamiento"
   }
 }

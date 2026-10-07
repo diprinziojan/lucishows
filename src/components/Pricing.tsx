@@ -57,7 +57,7 @@ export function Pricing() {
             }`}
           >
             {plan.popular && (
-              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-cta text-white text-xs font-bold px-5 py-1.5 rounded-full tracking-wider shadow-md shadow-brand-cta/25 animate-pulse-glow">
+              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-cta text-brand-text text-xs font-bold px-5 py-1.5 rounded-full tracking-wider shadow-md shadow-brand-cta/25 animate-pulse-glow">
                 {t('popular_badge')}
               </div>
             )}
@@ -115,9 +115,10 @@ export function Pricing() {
               key={i}
               type="button"
               onClick={() => toggleService(i)}
+              aria-pressed={selected[i]}
               className={`flex items-center gap-2.5 rounded-xl px-4 py-3 text-left text-sm font-body font-medium border transition-all duration-200 cursor-pointer ${
                 selected[i]
-                  ? 'bg-brand-cta text-white border-brand-cta shadow-sm shadow-brand-cta/15'
+                  ? 'bg-brand-cta text-brand-text border-brand-cta shadow-sm shadow-brand-cta/15'
                   : 'bg-white/80 text-brand-text-muted border-brand-card-border hover:border-brand-cta/40'
               }`}
             >
@@ -137,7 +138,7 @@ export function Pricing() {
 
         <div className="text-center flex flex-col items-center gap-3">
           <GlossyButton
-            href={`mailto:management@lucishows.com?subject=${encodeURIComponent(t('custom_email_subject'))}&body=${encodeURIComponent(
+            href={`mailto:lucianalopezfb@gmail.com?subject=${encodeURIComponent(t('custom_email_subject'))}&body=${encodeURIComponent(
               selected.some(Boolean)
                 ? `Servicios seleccionados:\n${selected.map((s, i) => s ? `• ${t(`custom.services.${i}`)}` : '').filter(Boolean).join('\n')}\n\n`
                 : ''

@@ -2,13 +2,14 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { CheckCircle, PaperPlaneTilt } from '@phosphor-icons/react';
 import { GlossyButton } from './ui/GlossyButton';
 import { SectionWrapper } from './ui/SectionWrapper';
 import { AnimatedHeading } from './ui/AnimatedHeading';
-import { fadeUp, staggerContainer } from '@/lib/animations';
+import { fadeUp } from '@/lib/animations';
+import { FormNotice, Honeypot } from './ui/FormNotice';
 
 type AgencyFormData = {
   company: string;
@@ -18,6 +19,7 @@ type AgencyFormData = {
   services: string[];
   budget: string;
   message: string;
+  websiteTrap: string;
 };
 
 type InfluencerFormData = {
@@ -28,16 +30,17 @@ type InfluencerFormData = {
   platform: string;
   budget: string;
   message: string;
+  websiteTrap: string;
 };
 
 const inputClass =
   'w-full rounded-2xl border border-brand-card-border bg-white/80 backdrop-blur-sm px-5 py-4 font-body text-brand-text placeholder:text-brand-text-muted/40 focus:outline-none focus:ring-2 focus:ring-brand-cta/30 focus:border-brand-cta focus:bg-white transition-all duration-200 text-sm';
 
-async function submitForm(formType: 'agency' | 'influencer', data: Record<string, string | string[]>) {
+async function submitForm(formType: 'agency' | 'influencer', data: Record<string, string | string[]>, locale: string) {
   const res = await fetch('/api/contact', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ formType, ...data }),
+    body: JSON.stringify({ formType, locale, ...data }),
   });
   if (!res.ok) throw new Error('Form submission failed');
 }
@@ -54,6 +57,7 @@ export function ContactForms() {
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           className="text-center py-16"
+          role="status"
         >
           <motion.div
             initial={{ scale: 0 }}
@@ -87,9 +91,10 @@ export function ContactForms() {
       <motion.div variants={fadeUp} className="flex justify-center gap-4 mb-10">
         <button
           onClick={() => setActiveTab('agency')}
+          aria-pressed={activeTab === 'agency'}
           className={`px-6 py-3 rounded-full font-body font-semibold text-sm transition-all duration-300 ${
             activeTab === 'agency'
-              ? 'bg-brand-cta text-white shadow-md shadow-brand-cta/20'
+              ? 'bg-brand-cta text-brand-text shadow-md shadow-brand-cta/20'
               : 'bg-white border border-gray-200 text-brand-text-muted hover:border-brand-cta/40'
           }`}
         >
@@ -97,9 +102,10 @@ export function ContactForms() {
         </button>
         <button
           onClick={() => setActiveTab('influencer')}
+          aria-pressed={activeTab === 'influencer'}
           className={`px-6 py-3 rounded-full font-body font-semibold text-sm transition-all duration-300 ${
             activeTab === 'influencer'
-              ? 'bg-brand-cta text-white shadow-md shadow-brand-cta/20'
+              ? 'bg-brand-cta text-brand-text shadow-md shadow-brand-cta/20'
               : 'bg-white border border-gray-200 text-brand-text-muted hover:border-brand-cta/40'
           }`}
         >
@@ -122,6 +128,7 @@ export function ContactForms() {
 }
 
 function AgencyForm({ t, onSuccess }: { t: ReturnType<typeof useTranslations<'contactForms'>>; onSuccess: () => void }) {
+  const locale = useLocale();
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const { register, handleSubmit, formState: { errors } } = useForm<AgencyFormData>();
 
@@ -141,7 +148,7 @@ function AgencyForm({ t, onSuccess }: { t: ReturnType<typeof useTranslations<'co
     setSubmitting(true);
     setError(false);
     try {
-      await submitForm('agency', { ...data, services: selectedServices });
+      await submitForm('agency', { ...data, services: selectedServices }, locale);
       onSuccess();
     } catch {
       setError(true);
@@ -166,70 +173,74 @@ function AgencyForm({ t, onSuccess }: { t: ReturnType<typeof useTranslations<'co
         </h3>
         <div className="h-px bg-gray-100 my-5" />
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+        <form aria-busy={submitting} onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+          <Honeypot {...register('websiteTrap')} />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block font-body text-xs font-medium text-gray-500 mb-1.5 ml-0.5">
+              <label htmlFor="agency-company" className="block font-body text-xs font-medium text-gray-500 mb-1.5 ml-0.5">
                 {t('agency.fields.company')}
               </label>
               <input
+                id="agency-company"
                 {...register('company', { required: t('validation.required') })}
                 className={agencyInputClass}
-                placeholder="Acme Inc."
+                placeholder={t('placeholders.company')}
               />
-              {errors.company && <p className="text-red-500 text-xs mt-1.5 ml-0.5">{errors.company.message}</p>}
+              {errors.company && <p className="text-red-700 text-xs mt-1.5 ml-0.5">{errors.company.message}</p>}
             </div>
             <div>
-              <label className="block font-body text-xs font-medium text-gray-500 mb-1.5 ml-0.5">
+              <label htmlFor="agency-contact" className="block font-body text-xs font-medium text-gray-500 mb-1.5 ml-0.5">
                 {t('agency.fields.contact')}
               </label>
               <input
+                id="agency-contact"
                 {...register('contact', { required: t('validation.required') })}
                 className={agencyInputClass}
-                placeholder="María García"
+                placeholder={t('placeholders.contact')}
               />
-              {errors.contact && <p className="text-red-500 text-xs mt-1.5 ml-0.5">{errors.contact.message}</p>}
+              {errors.contact && <p className="text-red-700 text-xs mt-1.5 ml-0.5">{errors.contact.message}</p>}
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block font-body text-xs font-medium text-gray-500 mb-1.5 ml-0.5">
+              <label htmlFor="agency-email" className="block font-body text-xs font-medium text-gray-500 mb-1.5 ml-0.5">
                 {t('agency.fields.email')}
               </label>
               <input
+                id="agency-email"
                 {...register('email', {
                   required: t('validation.required'),
                   pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: t('validation.invalid_email') }
                 })}
                 type="email"
                 className={agencyInputClass}
-                placeholder="hello@company.com"
+                placeholder={t('placeholders.email')}
               />
-              {errors.email && <p className="text-red-500 text-xs mt-1.5 ml-0.5">{errors.email.message}</p>}
+              {errors.email && <p className="text-red-700 text-xs mt-1.5 ml-0.5">{errors.email.message}</p>}
             </div>
             <div>
-              <label className="block font-body text-xs font-medium text-gray-500 mb-1.5 ml-0.5">
+              <label htmlFor="agency-sector" className="block font-body text-xs font-medium text-gray-500 mb-1.5 ml-0.5">
                 {t('agency.fields.sector')}
               </label>
               <input
+                id="agency-sector"
                 {...register('sector')}
                 className={agencyInputClass}
-                placeholder="E-commerce, SaaS..."
+                placeholder={t('placeholders.sector')}
               />
             </div>
           </div>
 
-          <div>
-            <label className="block font-body text-xs font-medium text-gray-500 mb-2.5 ml-0.5">
-              {t('agency.fields.services')}
-            </label>
+          <fieldset>
+            <legend className="block font-body text-xs font-medium text-gray-500 mb-2.5 ml-0.5">{t('agency.fields.services')}</legend>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {serviceOptions.map((opt) => (
                 <button
                   key={opt}
                   type="button"
                   onClick={() => toggleService(opt)}
+                  aria-pressed={selectedServices.includes(opt)}
                   className={`rounded-lg px-3 py-2.5 text-sm font-body font-medium border transition-all duration-200 text-left ${
                     selectedServices.includes(opt)
                       ? 'bg-brand-text text-white border-brand-text shadow-sm'
@@ -240,13 +251,13 @@ function AgencyForm({ t, onSuccess }: { t: ReturnType<typeof useTranslations<'co
                 </button>
               ))}
             </div>
-          </div>
+          </fieldset>
 
           <div>
-            <label className="block font-body text-xs font-medium text-gray-500 mb-1.5 ml-0.5">
-              {t('agency.fields.budget')}
+            <label htmlFor="agency-budget" className="block font-body text-xs font-medium text-gray-500 mb-1.5 ml-0.5">
+                {t('agency.fields.budget')}
             </label>
-            <select {...register('budget')} className={agencyInputClass} defaultValue="">
+            <select id="agency-budget" {...register('budget')} className={agencyInputClass} defaultValue="">
               <option value="" disabled>{t('agency.fields.budget')}</option>
               {budgetOptions.map((opt) => (
                 <option key={opt} value={opt}>{t(`agency.budget_options.${opt}`)}</option>
@@ -255,19 +266,21 @@ function AgencyForm({ t, onSuccess }: { t: ReturnType<typeof useTranslations<'co
           </div>
 
           <div>
-            <label className="block font-body text-xs font-medium text-gray-500 mb-1.5 ml-0.5">
-              {t('agency.fields.message')}
+            <label htmlFor="agency-message" className="block font-body text-xs font-medium text-gray-500 mb-1.5 ml-0.5">
+                {t('agency.fields.message')}
             </label>
             <textarea
-              {...register('message')}
+              id="agency-message"
+                {...register('message')}
               rows={4}
               className={agencyInputClass}
               placeholder={t('agency.fields.message')}
             />
           </div>
 
+          <FormNotice namespace="contactForms" />
           {error && (
-            <p className="text-red-500 text-sm text-center">{t('validation.submit_error')}</p>
+            <p role="alert" className="text-red-700 text-sm text-center">{t('validation.submit_error')}</p>
           )}
           <div className="pt-3">
             <motion.button
@@ -278,7 +291,7 @@ function AgencyForm({ t, onSuccess }: { t: ReturnType<typeof useTranslations<'co
               className="w-full rounded-xl bg-brand-text text-white font-body font-medium text-sm py-3.5 px-6 hover:bg-black transition-colors duration-200 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <PaperPlaneTilt size={18} weight="fill" />
-              {submitting ? '...' : t('buttons.submit')}
+              {submitting ? t('sending') : t('buttons.submit')}
             </motion.button>
           </div>
         </form>
@@ -288,6 +301,7 @@ function AgencyForm({ t, onSuccess }: { t: ReturnType<typeof useTranslations<'co
 }
 
 function InfluencerForm({ t, onSuccess }: { t: ReturnType<typeof useTranslations<'contactForms'>>; onSuccess: () => void }) {
+  const locale = useLocale();
   const [selectedCollabTypes, setSelectedCollabTypes] = useState<string[]>([]);
   const { register, handleSubmit, formState: { errors } } = useForm<InfluencerFormData>();
 
@@ -308,7 +322,7 @@ function InfluencerForm({ t, onSuccess }: { t: ReturnType<typeof useTranslations
     setSubmitting(true);
     setError(false);
     try {
-      await submitForm('influencer', { ...data, collabType: selectedCollabTypes });
+      await submitForm('influencer', { ...data, collabType: selectedCollabTypes }, locale);
       onSuccess();
     } catch {
       setError(true);
@@ -329,61 +343,64 @@ function InfluencerForm({ t, onSuccess }: { t: ReturnType<typeof useTranslations
           {t('influencer.title')}
         </h3>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <form aria-busy={submitting} onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <Honeypot {...register('websiteTrap')} />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block font-body text-xs font-semibold text-brand-text-muted uppercase tracking-wider mb-1.5 ml-1">
+              <label htmlFor="influencer-brand" className="block font-body text-xs font-semibold text-brand-text-muted uppercase tracking-wider mb-1.5 ml-1">
                 {t('influencer.fields.brand')}
               </label>
               <input
+                id="influencer-brand"
                 {...register('brand', { required: t('validation.required') })}
                 className={inputClass}
-                placeholder="Your Brand"
+                placeholder={t('placeholders.brand')}
               />
-              {errors.brand && <p className="text-red-400 text-xs mt-1.5 ml-1">{errors.brand.message}</p>}
+              {errors.brand && <p className="text-red-700 text-xs mt-1.5 ml-1">{errors.brand.message}</p>}
             </div>
             <div>
-              <label className="block font-body text-xs font-semibold text-brand-text-muted uppercase tracking-wider mb-1.5 ml-1">
+              <label htmlFor="influencer-contact" className="block font-body text-xs font-semibold text-brand-text-muted uppercase tracking-wider mb-1.5 ml-1">
                 {t('influencer.fields.contact')}
               </label>
               <input
+                id="influencer-contact"
                 {...register('contact', { required: t('validation.required') })}
                 className={inputClass}
-                placeholder="John Smith"
+                placeholder={t('placeholders.contact')}
               />
-              {errors.contact && <p className="text-red-400 text-xs mt-1.5 ml-1">{errors.contact.message}</p>}
+              {errors.contact && <p className="text-red-700 text-xs mt-1.5 ml-1">{errors.contact.message}</p>}
             </div>
           </div>
 
           <div>
-            <label className="block font-body text-xs font-semibold text-brand-text-muted uppercase tracking-wider mb-1.5 ml-1">
-              {t('influencer.fields.email')}
+            <label htmlFor="influencer-email" className="block font-body text-xs font-semibold text-brand-text-muted uppercase tracking-wider mb-1.5 ml-1">
+                {t('influencer.fields.email')}
             </label>
             <input
-              {...register('email', {
+              id="influencer-email"
+                {...register('email', {
                 required: t('validation.required'),
                 pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: t('validation.invalid_email') }
               })}
               type="email"
               className={inputClass}
-              placeholder="hello@brand.com"
+              placeholder={t('placeholders.email')}
             />
-            {errors.email && <p className="text-red-400 text-xs mt-1.5 ml-1">{errors.email.message}</p>}
+            {errors.email && <p className="text-red-700 text-xs mt-1.5 ml-1">{errors.email.message}</p>}
           </div>
 
-          <div>
-            <label className="block font-body text-xs font-semibold text-brand-text-muted uppercase tracking-wider mb-2 ml-1">
-              {t('influencer.fields.collabType')}
-            </label>
+          <fieldset>
+            <legend className="block font-body text-xs font-semibold text-brand-text-muted uppercase tracking-wider mb-2 ml-1">{t('influencer.fields.collabType')}</legend>
             <div className="flex flex-wrap gap-2">
               {collabOptions.map((opt) => (
                 <button
                   key={opt}
                   type="button"
                   onClick={() => toggleCollabType(opt)}
+                  aria-pressed={selectedCollabTypes.includes(opt)}
                   className={`rounded-full px-4 py-2.5 text-sm font-body font-medium border transition-all duration-200 ${
                     selectedCollabTypes.includes(opt)
-                      ? 'bg-brand-cta text-white border-brand-cta shadow-sm shadow-brand-cta/15'
+                      ? 'bg-brand-cta text-brand-text border-brand-cta shadow-sm shadow-brand-cta/15'
                       : 'bg-white/80 text-brand-text-muted border-brand-card-border hover:border-brand-cta/40'
                   }`}
                 >
@@ -391,14 +408,14 @@ function InfluencerForm({ t, onSuccess }: { t: ReturnType<typeof useTranslations
                 </button>
               ))}
             </div>
-          </div>
+          </fieldset>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block font-body text-xs font-semibold text-brand-text-muted uppercase tracking-wider mb-1.5 ml-1">
+              <label htmlFor="influencer-platform" className="block font-body text-xs font-semibold text-brand-text-muted uppercase tracking-wider mb-1.5 ml-1">
                 {t('influencer.fields.platform')}
               </label>
-              <select {...register('platform')} className={inputClass} defaultValue="">
+              <select id="influencer-platform" {...register('platform')} className={inputClass} defaultValue="">
                 <option value="" disabled>{t('influencer.fields.platform')}</option>
                 {platformOptions.map((opt) => (
                   <option key={opt} value={opt}>{t(`influencer.platform_options.${opt}`)}</option>
@@ -406,10 +423,10 @@ function InfluencerForm({ t, onSuccess }: { t: ReturnType<typeof useTranslations
               </select>
             </div>
             <div>
-              <label className="block font-body text-xs font-semibold text-brand-text-muted uppercase tracking-wider mb-1.5 ml-1">
+              <label htmlFor="influencer-budget" className="block font-body text-xs font-semibold text-brand-text-muted uppercase tracking-wider mb-1.5 ml-1">
                 {t('influencer.fields.budget')}
               </label>
-              <select {...register('budget')} className={inputClass} defaultValue="">
+              <select id="influencer-budget" {...register('budget')} className={inputClass} defaultValue="">
                 <option value="" disabled>{t('influencer.fields.budget')}</option>
                 {budgetOptions.map((opt) => (
                   <option key={opt} value={opt}>{t(`influencer.budget_options.${opt}`)}</option>
@@ -419,24 +436,26 @@ function InfluencerForm({ t, onSuccess }: { t: ReturnType<typeof useTranslations
           </div>
 
           <div>
-            <label className="block font-body text-xs font-semibold text-brand-text-muted uppercase tracking-wider mb-1.5 ml-1">
-              {t('influencer.fields.message')}
+            <label htmlFor="influencer-message" className="block font-body text-xs font-semibold text-brand-text-muted uppercase tracking-wider mb-1.5 ml-1">
+                {t('influencer.fields.message')}
             </label>
             <textarea
-              {...register('message')}
+              id="influencer-message"
+                {...register('message')}
               rows={3}
               className={inputClass}
               placeholder={t('influencer.fields.message')}
             />
           </div>
 
+          <FormNotice namespace="contactForms" />
           {error && (
-            <p className="text-red-400 text-sm text-center">{t('validation.submit_error')}</p>
+            <p role="alert" className="text-red-700 text-sm text-center">{t('validation.submit_error')}</p>
           )}
           <div className="pt-2">
             <GlossyButton type="submit" variant="full" disabled={submitting}>
               <PaperPlaneTilt size={18} weight="fill" className="mr-1" />
-              {submitting ? '...' : t('buttons.submit')}
+              {submitting ? t('sending') : t('buttons.submit')}
             </GlossyButton>
           </div>
         </form>

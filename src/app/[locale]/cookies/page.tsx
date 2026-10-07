@@ -1,3 +1,10 @@
+import { pageMetadata } from '@/lib/metadata';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  return pageMetadata(locale, '/cookies', 'cookies');
+}
+
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { useTranslations } from 'next-intl';

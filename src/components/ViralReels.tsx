@@ -1,8 +1,8 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Heart, ChatCircle, Play, Pause } from '@phosphor-icons/react';
 import { SectionWrapper } from './ui/SectionWrapper';
@@ -15,43 +15,70 @@ const REELS = [
   { src: '/videos/video-3.mp4', likes: '33,2 mil', comments: '10,6 mil' },
 ];
 
-function ReelCard({ reel }: { reel: (typeof REELS)[number] }) {
+function ReelCard({ reel, number }: { reel: (typeof REELS)[number]; number: number }) {
+  const t = useTranslations('viralReels');
+  const cardRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [playing, setPlaying] = useState(true);
+  const loadVideo = useInView(cardRef, { once: true, margin: '200px' });
+  const visible = useInView(cardRef, { amount: 0.35 });
+  const reducedMotion = useReducedMotion();
+  const [playing, setPlaying] = useState(false);
+  const [manuallyPaused, setManuallyPaused] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !loadVideo) return;
+    const syncPlayback = () => {
+      if (visible && !document.hidden && !reducedMotion && !manuallyPaused) {
+        void video.play().catch(() => {});
+      } else video.pause();
+    };
+    syncPlayback();
+    document.addEventListener('visibilitychange', syncPlayback);
+    return () => {
+      document.removeEventListener('visibilitychange', syncPlayback);
+      video.pause();
+    };
+  }, [visible, loadVideo, reducedMotion, manuallyPaused]);
 
   const toggle = () => {
-    const v = videoRef.current;
-    if (!v) return;
-    if (v.paused) {
-      v.play();
-      setPlaying(true);
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      setManuallyPaused(false);
+      void video.play().catch(() => {});
     } else {
-      v.pause();
-      setPlaying(false);
+      setManuallyPaused(true);
+      video.pause();
     }
   };
 
   return (
     <motion.div
       variants={fadeUp}
-      className="relative w-full overflow-hidden rounded-2xl shadow-lg bg-black group cursor-pointer"
-      onClick={toggle}
+      ref={cardRef}
+      className="relative w-full aspect-[9/16] overflow-hidden rounded-2xl shadow-lg bg-black group"
     >
       <video
         ref={videoRef}
-        src={reel.src}
-        className="w-full h-auto"
-        autoPlay
+        src={loadVideo ? reel.src : undefined}
+        poster={`/videos/posters/video-${number}.jpg`}
+        className="w-full h-full object-cover"
+        onPlay={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
         loop
         muted
         playsInline
-        preload="metadata"
+        preload="none"
       />
 
       {/* Play/Pause indicator */}
-      <div
-        className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
-          playing ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'
+      <button
+        type="button"
+        onClick={toggle}
+        aria-label={t(playing ? 'pause' : 'play', { number })}
+        className={`absolute inset-0 w-full flex items-center justify-center cursor-pointer focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-white transition-opacity duration-200 ${
+          playing ? 'opacity-0 group-hover:opacity-100 focus-visible:opacity-100' : 'opacity-100'
         }`}
       >
         <div className="w-14 h-14 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center">
@@ -61,7 +88,7 @@ function ReelCard({ reel }: { reel: (typeof REELS)[number] }) {
             <Play size={28} weight="fill" className="text-white ml-0.5" />
           )}
         </div>
-      </div>
+      </button>
 
       {/* Top overlay — profile */}
       <div className="absolute top-0 left-0 right-0 p-3 bg-gradient-to-b from-black/60 to-transparent pointer-events-none">
@@ -117,8 +144,8 @@ export function ViralReels() {
       </div>
 
       <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        {REELS.map((reel) => (
-          <ReelCard key={reel.src} reel={reel} />
+        {REELS.map((reel, index) => (
+          <ReelCard key={reel.src} reel={reel} number={index + 1} />
         ))}
       </div>
     </SectionWrapper>

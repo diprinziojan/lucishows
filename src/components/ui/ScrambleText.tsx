@@ -1,80 +1,37 @@
 'use client';
 
-import { useEffect, useRef, useState, useCallback } from 'react';
-import { useInView } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { useInView, useReducedMotion } from 'framer-motion';
 
 const DIGITS = '0123456789';
+type ScrambleTextProps = { text: string; className?: string; speed?: number; revealDelay?: number };
 
-type ScrambleTextProps = {
-  text: string;
-  className?: string;
-  speed?: number;
-  revealDelay?: number;
-};
-
-export function ScrambleText({ text, className = '', speed = 50, revealDelay = 120 }: ScrambleTextProps) {
+export function ScrambleText({ text, className = '', speed = 50, revealDelay = 60 }: ScrambleTextProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true });
-  const hasAnimated = useRef(false);
-  const hasMounted = useRef(false);
+  const reducedMotion = useReducedMotion();
   const [display, setDisplay] = useState(text);
 
   useEffect(() => {
-    hasMounted.current = true;
-  }, []);
-
-  const scramble = useCallback(() => {
-    if (hasAnimated.current || !hasMounted.current) return;
-    hasAnimated.current = true;
-
-    const total = text.length;
-    let revealed = 0;
-
-    // Start with all numbers
-    setDisplay(
-      text.replace(/[^ .]/g, () => DIGITS[Math.floor(Math.random() * DIGITS.length)])
-    );
-
+    if (!isInView || reducedMotion) return;
+    const started = performance.now();
     const interval = setInterval(() => {
-      setDisplay(() => {
-        let result = '';
-        for (let i = 0; i < total; i++) {
-          if (text[i] === ' ' || text[i] === '.') {
-            result += text[i];
-          } else if (i < revealed) {
-            result += text[i];
-          } else {
-            result += DIGITS[Math.floor(Math.random() * DIGITS.length)];
-          }
-        }
-        return result;
-      });
-    }, speed);
-
-    const revealInterval = setInterval(() => {
-      revealed++;
-      if (revealed > total) {
-        clearInterval(interval);
-        clearInterval(revealInterval);
+      const revealed = Math.floor((performance.now() - started) / revealDelay);
+      if (revealed >= text.length) {
         setDisplay(text);
+        clearInterval(interval);
+        return;
       }
-    }, revealDelay);
-
-    return () => {
-      clearInterval(interval);
-      clearInterval(revealInterval);
-    };
-  }, [text, speed, revealDelay]);
-
-  useEffect(() => {
-    if (isInView && hasMounted.current) {
-      return scramble();
-    }
-  }, [isInView, scramble]);
+      setDisplay(text.split('').map((letter, i) => i < revealed || /[ .]/.test(letter)
+        ? letter : DIGITS[Math.floor(Math.random() * DIGITS.length)]).join(''));
+    }, speed);
+    return () => clearInterval(interval);
+  }, [isInView, reducedMotion, text, speed, revealDelay]);
 
   return (
     <span ref={ref} className={className}>
-      {display}
+      <span aria-hidden="true">{reducedMotion ? text : display}</span>
+      <span className="sr-only">{text}</span>
     </span>
   );
 }

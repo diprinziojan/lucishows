@@ -1,6 +1,5 @@
 'use client';
 
-import { useMemo } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
@@ -11,7 +10,6 @@ import { fadeUp, slideFromRight, scaleIn, staggerContainer } from '@/lib/animati
 
 export function Hero() {
   const t = useTranslations('hero');
-  const spots = useMemo(() => Math.floor(Math.random() * 4) + 1, []);
 
   return (
     <section className="relative z-10 overflow-hidden hero-gradient">
@@ -37,7 +35,7 @@ export function Hero() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cta opacity-75" />
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-cta" />
                 </span>
-                {t('badge', { spots })}
+                {t('badge')}
               </span>
             </motion.div>
 
@@ -50,7 +48,7 @@ export function Hero() {
               {t('heading_2')}{' '}
               <ScrambleText
                 text={t('heading_scramble')}
-                className="text-brand-cta"
+                className="text-brand-ink"
                 speed={50}
                 revealDelay={120}
               />
@@ -85,7 +83,7 @@ export function Hero() {
               <div className="rounded-2xl overflow-hidden shadow-xl aspect-[3/4]">
                 <Image
                   src="/images/hero.jpg"
-                  alt="Luciana"
+                  alt={t('imageAlt')}
                   fill
                   className="object-cover"
                   priority
@@ -95,18 +93,18 @@ export function Hero() {
 
               {/* Glassmorphism social bar */}
               <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-white/75 backdrop-blur-xl rounded-full shadow-lg px-3 py-2 sm:px-5 sm:py-2.5 flex items-center gap-2.5 sm:gap-4 border border-white/60">
-                <a href="https://instagram.com/luci.showss" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:scale-110 transition-transform">
-                  <InstagramLogo size={18} weight="fill" className="text-brand-cta" />
+                <a aria-label="Instagram — Luciana López" href="https://instagram.com/luci.showss" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:scale-110 transition-transform">
+                  <InstagramLogo size={18} weight="fill" className="text-brand-ink" />
                   <span className="font-body text-xs font-bold text-brand-text">1.3M</span>
                 </a>
                 <div className="w-px h-4 bg-brand-cta/20" />
-                <a href="https://tiktok.com/@luci.shows" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:scale-110 transition-transform">
-                  <TiktokLogo size={18} weight="fill" className="text-brand-cta" />
+                <a aria-label="TikTok — Luciana López" href="https://tiktok.com/@luci.shows" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:scale-110 transition-transform">
+                  <TiktokLogo size={18} weight="fill" className="text-brand-ink" />
                   <span className="font-body text-xs font-bold text-brand-text">2M</span>
                 </a>
                 <div className="w-px h-4 bg-brand-cta/20" />
-                <a href="https://www.facebook.com/p/Lucishows-61555122039982/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:scale-110 transition-transform">
-                  <FacebookLogo size={18} weight="fill" className="text-brand-cta" />
+                <a aria-label="Facebook — Luciana López" href="https://www.facebook.com/p/Lucishows-61555122039982/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:scale-110 transition-transform">
+                  <FacebookLogo size={18} weight="fill" className="text-brand-ink" />
                   <span className="font-body text-xs font-bold text-brand-text">1.3M</span>
                 </a>
               </div>

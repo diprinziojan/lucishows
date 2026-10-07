@@ -10,6 +10,7 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { AnimatedHeading } from '@/components/ui/AnimatedHeading';
 import { fadeUp } from '@/lib/animations';
+import { FormNotice, Honeypot } from '@/components/ui/FormNotice';
 
 type ProposalFormData = {
   fullName: string;
@@ -18,19 +19,13 @@ type ProposalFormData = {
   website: string;
   budget: string;
   project: string;
+  websiteTrap: string;
 };
 
 const budgetOptions = ['under_500', '500_1000', '1000_3000', '3000_5000', '5000_plus', 'not_sure'];
 
 const inputClass =
   'w-full rounded-xl border border-gray-200 bg-white px-5 py-3.5 font-body text-brand-text placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-text/10 focus:border-brand-text/30 transition-all duration-200 text-sm';
-
-function formatPhone(value: string): string {
-  const hasPlus = value.startsWith('+');
-  const digits = value.replace(/\D/g, '');
-  const groups = digits.match(/.{1,3}/g) || [];
-  return (hasPlus ? '+' : '') + groups.join(' ');
-}
 
 export default function ProposalPage() {
   const t = useTranslations('proposal');
@@ -79,6 +74,7 @@ export default function ProposalPage() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               className="text-center py-16"
+              role="status"
             >
               <motion.div
                 initial={{ scale: 0 }}
@@ -98,26 +94,29 @@ export default function ProposalPage() {
           ) : (
             <motion.div variants={fadeUp} initial="hidden" animate="visible">
               <div className="bg-white rounded-2xl shadow-md border border-gray-100 p-6 md:p-10">
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                <form aria-busy={submitting} onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                  <Honeypot {...register('websiteTrap')} />
                   <div>
-                    <label className="block font-body text-xs font-medium text-gray-500 mb-1.5 ml-0.5">
-                      {t('fields.fullName')}
+                    <label htmlFor="proposal-fullName" className="block font-body text-xs font-medium text-gray-500 mb-1.5 ml-0.5">
+                        {t('fields.fullName')}
                     </label>
                     <input
+                      id="proposal-fullName"
                       {...register('fullName', { required: t('required') })}
                       className={inputClass}
                       placeholder={t('placeholders.fullName')}
                     />
-                    {errors.fullName && <p className="text-red-500 text-xs mt-1.5 ml-0.5">{errors.fullName.message}</p>}
+                    {errors.fullName && <p className="text-red-700 text-xs mt-1.5 ml-0.5">{errors.fullName.message}</p>}
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block font-body text-xs font-medium text-gray-500 mb-1.5 ml-0.5">
+                      <label htmlFor="proposal-email" className="block font-body text-xs font-medium text-gray-500 mb-1.5 ml-0.5">
                         {t('fields.email')}
                       </label>
                       <input
-                        {...register('email', {
+                        id="proposal-email"
+                      {...register('email', {
                           required: t('required'),
                           pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: t('invalid_email') }
                         })}
@@ -125,10 +124,10 @@ export default function ProposalPage() {
                         className={inputClass}
                         placeholder={t('placeholders.email')}
                       />
-                      {errors.email && <p className="text-red-500 text-xs mt-1.5 ml-0.5">{errors.email.message}</p>}
+                      {errors.email && <p className="text-red-700 text-xs mt-1.5 ml-0.5">{errors.email.message}</p>}
                     </div>
                     <div>
-                      <label className="block font-body text-xs font-medium text-gray-500 mb-1.5 ml-0.5">
+                      <label htmlFor="proposal-phone" className="block font-body text-xs font-medium text-gray-500 mb-1.5 ml-0.5">
                         {t('fields.phone')}
                       </label>
                       <Controller
@@ -137,35 +136,41 @@ export default function ProposalPage() {
                         rules={{ required: t('required') }}
                         render={({ field }) => (
                           <input
+                            id="proposal-phone"
+                            name={field.name}
+                            ref={field.ref}
+                            onBlur={field.onBlur}
+                            autoComplete="tel"
                             type="tel"
                             className={inputClass}
                             placeholder={t('placeholders.phone')}
                             value={field.value || ''}
-                            onChange={(e) => field.onChange(formatPhone(e.target.value))}
+                            onChange={(e) => field.onChange(e.target.value)}
                           />
                         )}
                       />
-                      {errors.phone && <p className="text-red-500 text-xs mt-1.5 ml-0.5">{errors.phone.message}</p>}
+                      {errors.phone && <p className="text-red-700 text-xs mt-1.5 ml-0.5">{errors.phone.message}</p>}
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block font-body text-xs font-medium text-gray-500 mb-1.5 ml-0.5">
+                      <label htmlFor="proposal-website" className="block font-body text-xs font-medium text-gray-500 mb-1.5 ml-0.5">
                         {t('fields.website')}
                       </label>
                       <input
-                        {...register('website')}
+                        id="proposal-website"
+                      {...register('website')}
                         type="url"
                         className={inputClass}
                         placeholder={t('placeholders.website')}
                       />
                     </div>
                     <div>
-                      <label className="block font-body text-xs font-medium text-gray-500 mb-1.5 ml-0.5">
+                      <label htmlFor="proposal-budget" className="block font-body text-xs font-medium text-gray-500 mb-1.5 ml-0.5">
                         {t('fields.budget')}
                       </label>
-                      <select {...register('budget')} className={inputClass} defaultValue="">
+                      <select id="proposal-budget" {...register('budget')} className={inputClass} defaultValue="">
                         <option value="" disabled>{t('budget_options.placeholder')}</option>
                         {budgetOptions.map((opt) => (
                           <option key={opt} value={opt}>{t(`budget_options.${opt}`)}</option>
@@ -175,20 +180,22 @@ export default function ProposalPage() {
                   </div>
 
                   <div>
-                    <label className="block font-body text-xs font-medium text-gray-500 mb-1.5 ml-0.5">
-                      {t('fields.project')}
+                    <label htmlFor="proposal-project" className="block font-body text-xs font-medium text-gray-500 mb-1.5 ml-0.5">
+                        {t('fields.project')}
                     </label>
                     <textarea
+                      id="proposal-project"
                       {...register('project', { required: t('required') })}
                       rows={4}
                       className={inputClass}
                       placeholder={t('placeholders.project')}
                     />
-                    {errors.project && <p className="text-red-500 text-xs mt-1.5 ml-0.5">{errors.project.message}</p>}
+                    {errors.project && <p className="text-red-700 text-xs mt-1.5 ml-0.5">{errors.project.message}</p>}
                   </div>
 
+                  <FormNotice namespace="proposal" />
                   {error && (
-                    <p className="text-red-500 text-sm text-center">{t('error')}</p>
+                    <p role="alert" className="text-red-700 text-sm text-center">{t('error')}</p>
                   )}
 
                   <div className="pt-3">
@@ -200,7 +207,7 @@ export default function ProposalPage() {
                       className="w-full rounded-xl bg-brand-text text-white font-body font-medium text-sm py-3.5 px-6 hover:bg-black transition-colors duration-200 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       <PaperPlaneTilt size={18} weight="fill" />
-                      {submitting ? '...' : t('submit')}
+                      {submitting ? t('sending') : t('submit')}
                     </motion.button>
                   </div>
                 </form>

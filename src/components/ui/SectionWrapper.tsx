@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { staggerContainer } from '@/lib/animations';
 
 type SectionWrapperProps = {
@@ -11,6 +11,7 @@ type SectionWrapperProps = {
 };
 
 export function SectionWrapper({ children, className = '', id, bg = 'blush' }: SectionWrapperProps) {
+  const reducedMotion = useReducedMotion();
   const bgClass = bg === 'light' ? 'section-light' : bg === 'dark' ? 'bg-[#1A1A1A]' : 'section-blush';
 
   return (
@@ -18,9 +19,9 @@ export function SectionWrapper({ children, className = '', id, bg = 'blush' }: S
       <motion.div
         className="max-w-7xl mx-auto px-6"
         variants={staggerContainer}
-        initial="hidden"
+        initial={reducedMotion ? 'visible' : 'hidden'}
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: '-30px' }}
       >
         {children}
       </motion.div>

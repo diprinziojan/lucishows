@@ -1,18 +1,19 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Plus, Minus } from '@phosphor-icons/react';
 import { SectionWrapper } from './ui/SectionWrapper';
 import { GlossyButton } from './ui/GlossyButton';
 import { AnimatedHeading } from './ui/AnimatedHeading';
-import { fadeUp, staggerContainer } from '@/lib/animations';
+import { fadeUp } from '@/lib/animations';
 
 const FAQ_COUNT = 12;
 
 export function FAQ() {
   const t = useTranslations('faq');
+  const reducedMotion = useReducedMotion();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const items = Array.from({ length: FAQ_COUNT }, (_, i) => ({
@@ -36,8 +37,12 @@ export function FAQ() {
         }`}
       >
         <button
+          type="button"
+          id={`faq-question-${index}`}
+          aria-expanded={isOpen}
+          aria-controls={`faq-answer-${index}`}
           onClick={() => setOpenIndex(isOpen ? null : index)}
-          className="w-full px-5 py-4 flex justify-between items-center gap-4 cursor-pointer focus:outline-none"
+          className="w-full px-5 py-4 flex justify-between items-center gap-4 cursor-pointer"
         >
           <span className={`font-body font-semibold text-left text-sm md:text-base transition-colors ${
             isOpen ? 'text-brand-text' : 'text-brand-text-muted'
@@ -51,13 +56,14 @@ export function FAQ() {
           </div>
         </button>
 
-        <AnimatePresence>
+        <div id={`faq-answer-${index}`} role="region" aria-labelledby={`faq-question-${index}`} hidden={!isOpen}>
+        <AnimatePresence initial={false}>
           {isOpen && (
             <motion.div
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              transition={{ duration: reducedMotion ? 0 : 0.2, ease: 'easeInOut' }}
             >
               <p className="px-5 pb-5 text-brand-text-muted font-body text-sm leading-relaxed">
                 {item.answer}
@@ -65,6 +71,7 @@ export function FAQ() {
             </motion.div>
           )}
         </AnimatePresence>
+        </div>
       </div>
     );
   };

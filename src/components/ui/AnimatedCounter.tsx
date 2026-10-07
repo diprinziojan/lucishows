@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { useInView } from 'framer-motion';
+import { useInView, useReducedMotion } from 'framer-motion';
+import { useLocale } from 'next-intl';
 
 type AnimatedCounterProps = {
   target: number;
@@ -10,33 +11,33 @@ type AnimatedCounterProps = {
   duration?: number;
 };
 
-export function AnimatedCounter({ target, prefix = '', suffix = '', duration = 2000 }: AnimatedCounterProps) {
-  const [count, setCount] = useState(0);
+export function AnimatedCounter({ target, prefix = '', suffix = '', duration = 1200 }: AnimatedCounterProps) {
+  const [count, setCount] = useState(target);
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true });
-  const hasAnimated = useRef(false);
+  const reducedMotion = useReducedMotion();
+  const locale = useLocale();
+  const digits = Number.isInteger(target) ? 0 : 1;
+  const format = (value: number) => new Intl.NumberFormat(locale, { maximumFractionDigits: digits }).format(value);
 
   useEffect(() => {
-    if (!isInView || hasAnimated.current) return;
-    hasAnimated.current = true;
-
+    if (!isInView || reducedMotion) return;
     const startTime = performance.now();
-    const animate = (currentTime: number) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const easeOut = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.floor(easeOut * target));
-
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      }
+    let frame: number;
+    const animate = (now: number) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const value = (1 - Math.pow(1 - progress, 3)) * target;
+      setCount(progress === 1 ? target : Math.floor(value * 10 ** digits) / 10 ** digits);
+      if (progress < 1) frame = requestAnimationFrame(animate);
     };
-    requestAnimationFrame(animate);
-  }, [isInView, target, duration]);
+    frame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frame);
+  }, [isInView, reducedMotion, target, duration, digits]);
 
   return (
     <span ref={ref} className="font-heading text-2xl md:text-3xl font-bold leading-none">
-      {prefix}{count}{suffix}
+      <span aria-hidden="true">{prefix}{format(reducedMotion ? target : count)}{suffix}</span>
+      <span className="sr-only">{prefix}{format(target)}{suffix}</span>
     </span>
   );
 }

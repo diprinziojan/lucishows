@@ -20,7 +20,7 @@ export function Footer({ hideCta = false }: { hideCta?: boolean } = {}) {
       <div className="bg-gradient-to-r from-brand-bg via-brand-cta to-brand-bg-dark">
         <div className="max-w-4xl mx-auto px-6 py-14 text-center">
           <motion.h2
-            className="font-heading text-3xl md:text-4xl text-white mb-3 tracking-wide"
+            className="font-heading text-3xl md:text-4xl text-brand-text mb-3 tracking-wide"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -29,7 +29,7 @@ export function Footer({ hideCta = false }: { hideCta?: boolean } = {}) {
             {t('ctaHeading')}
           </motion.h2>
           <motion.p
-            className="font-body text-white/80 text-lg mb-8 max-w-xl mx-auto"
+            className="font-body text-brand-text-muted text-lg mb-8 max-w-xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -117,7 +117,7 @@ export function Footer({ hideCta = false }: { hideCta?: boolean } = {}) {
                 </li>
                 <li className="flex items-start gap-2">
                   <MapPin className="w-4 h-4 text-brand-cta flex-shrink-0 mt-0.5" weight="fill" />
-                  <span className="font-body text-gray-400 text-sm">Barcelona, Spain</span>
+                  <span className="font-body text-gray-400 text-sm">{t('location')}</span>
                 </li>
               </ul>
             </motion.div>
@@ -129,12 +129,13 @@ export function Footer({ hideCta = false }: { hideCta?: boolean } = {}) {
           {/* Bottom bar */}
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-center sm:text-left">
-              <p className="text-sm text-gray-500 font-body">
+              <p className="text-sm text-gray-400 font-body">
                 {t('copyright')}
               </p>
             </div>
             <div className="flex items-center gap-4">
               <a
+                aria-label="Instagram — Luciana López"
                 href="https://www.instagram.com/luci.showss"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -143,6 +144,7 @@ export function Footer({ hideCta = false }: { hideCta?: boolean } = {}) {
                 <InstagramLogo className="w-5 h-5" weight="fill" />
               </a>
               <a
+                aria-label="TikTok — Luciana López"
                 href="https://www.tiktok.com/@luci.shows"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -151,6 +153,7 @@ export function Footer({ hideCta = false }: { hideCta?: boolean } = {}) {
                 <TiktokLogo className="w-5 h-5" weight="fill" />
               </a>
               <a
+                aria-label="Facebook — Luciana López"
                 href="https://www.facebook.com/p/Lucishows-61555122039982/"
                 target="_blank"
                 rel="noopener noreferrer"

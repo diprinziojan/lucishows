@@ -5,6 +5,7 @@ import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import "../globals.css";
+import { MotionProvider } from '@/components/ui/MotionProvider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -42,13 +43,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: t('title'),
       description: t('description'),
       url: "https://lucianalopez.es",
-      siteName: "Luciana",
-      images: [{ url: "/images/hero.jpg", width: 1200, height: 630 }],
+      siteName: "Luciana López",
+      images: [{ url: "/images/hero.jpg", width: 800, height: 1200 }],
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: "Luciana",
+      title: t('title'),
       description: t('description'),
       images: ["/images/hero.jpg"],
     },
@@ -70,7 +71,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         className="font-body antialiased"
       >
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <MotionProvider>{children}</MotionProvider>
         </NextIntlClientProvider>
       </body>
     </html>
