@@ -123,42 +123,50 @@
     "plans": {
       "presencia": {
         "name": "Pack Presencia",
-        "description": "Para negocios locales, emprendedores y marcas que dan sus primeros pasos online",
+        "description": "Para negocios que crean su propio contenido y necesitan ideas, planificación y orientación.",
         "features": [
-          "Campaña de marketing para 2 redes sociales",
-          "Diseño gráfico de cada publicación",
-          "Calendario editorial mensual",
-          "Respuesta a mensajes y comentarios",
-          "Optimización de perfiles",
-          "Informe mensual de resultados",
-          "Atención presencial de nuestro equipo"
-        ]
+          "Estrategia de contenido para Instagram y TikTok.",
+          "Calendario mensual con 8 ideas de contenido.",
+          "4 guiones mensuales para grabar tus vídeos.",
+          "Recomendaciones para mejorar tus perfiles.",
+          "Una asesoría online mensual de 45 minutos."
+        ],
+        "subtitle": "Estrategia online",
+        "price": "299 €/mes + IVA",
+        "summary": "Tú grabas, editas y publicas. Nosotros te ayudamos a organizarlo y darle dirección.",
+        "cta": "Solicitar propuesta"
       },
       "crecimiento": {
         "name": "Pack Crecimiento",
-        "description": "Para marcas que quieren escalar con estrategia, contenido y publicidad",
+        "description": "Para negocios que quieren delegar sus redes con una estrategia y contenido profesional.",
         "features": [
-          "Todo lo del Pack Presencia",
-          "SEO básico (optimización mensual)",
-          "Estrategia de contenido personalizada",
-          "Reunión estratégica mensual",
-          "Atención presencial de nuestro equipo"
-        ]
+          "Auditoría inicial de tus redes y objetivos del negocio.",
+          "Estrategia y calendario de contenido mensual.",
+          "Una sesión presencial de grabación al mes de hasta 3 horas.",
+          "6 reels editados al mes.",
+          "4 publicaciones o carruseles y 8 stories al mes.",
+          "Textos, programación y publicación en Instagram y TikTok.",
+          "Informe de resultados y reunión mensual de 30 minutos."
+        ],
+        "subtitle": "Creación y gestión de redes",
+        "price": "1.490 €/mes + IVA",
+        "summary": "De las ideas a la publicación: nos encargamos de crear, organizar y gestionar tu contenido. Las cantidades son el contenido total mensual para ambas redes.",
+        "cta": "Solicitar propuesta"
       },
       "dominio": {
         "name": "Pack Dominio Total",
-        "description": "Servicio 360° para empresas que quieren dominar su sector online",
+        "description": "Para negocios que necesitan combinar contenido, presencia digital y captación de clientes. Diseñamos tu propuesta con los servicios que necesites:",
         "features": [
-          "Todo lo del Pack Crecimiento",
-          "Gestión completa de todas las redes",
-          "Campañas en Meta + Google Ads",
-          "SEO completo (técnico + contenidos)",
-          "Diseño y optimización continua de web",
-          "Marketing por correo electrónico + embudos de venta",
-          "Estrategia personalizada semanal",
-          "Reuniones estratégicas semanales",
-          "Atención presencial de nuestro equipo"
-        ]
+          "Estrategia y gestión de redes sociales.",
+          "Más contenido y sesiones de grabación.",
+          "Diseño web y landing pages.",
+          "Posicionamiento SEO.",
+          "Embudos de captación y venta."
+        ],
+        "subtitle": "Proyecto a medida",
+        "price": "Presupuesto personalizado",
+        "summary": "Servicios según presupuesto. Definimos contigo los objetivos, el alcance y los plazos para preparar una propuesta adaptada a tu negocio.",
+        "cta": "Solicitar presupuesto"
       }
     },
     "custom": {
@@ -325,7 +333,7 @@
       },
       {
         "question": "¿Cuál es el presupuesto mínimo para trabajar con vosotros?",
-        "answer": "Nuestro pack más accesible arranca en un rango de 300-600 €/mes. Para campañas de influencer el presupuesto varía según el tipo de contenido y alcance deseado."
+        "answer": "Pack Presencia cuesta 299 €/mes + IVA y Pack Crecimiento, 1.490 €/mes + IVA. Pack Dominio Total se presupuesta según los servicios que necesites. Las colaboraciones con Luci Shows se presupuestan por separado."
       },
       {
         "question": "¿Trabajáis con marcas internacionales?",

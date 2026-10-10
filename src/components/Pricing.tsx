@@ -9,9 +9,9 @@ import { AnimatedHeading } from './ui/AnimatedHeading';
 import { fadeUp, staggerContainer } from '@/lib/animations';
 
 const plans = [
-  { key: 'presencia', featureCount: 7, popular: false },
-  { key: 'crecimiento', featureCount: 5, popular: true },
-  { key: 'dominio', featureCount: 9, popular: false },
+  { key: 'presencia', featureCount: 5, popular: false },
+  { key: 'crecimiento', featureCount: 7, popular: true },
+  { key: 'dominio', featureCount: 5, popular: false },
 ] as const;
 
 export function Pricing() {
@@ -55,6 +55,14 @@ export function Pricing() {
             </h3>
 
             <p className="mt-2 font-body text-brand-text-muted text-sm">
+              {t(`plans.${plan.key}.subtitle`)}
+            </p>
+
+            <p className="mt-2 font-heading text-2xl font-bold text-brand-text">
+              {t(`plans.${plan.key}.price`)}
+            </p>
+
+            <p className="mt-2 font-body text-brand-text-muted text-sm">
               {t(`plans.${plan.key}.description`)}
             </p>
 
@@ -71,9 +79,13 @@ export function Pricing() {
               ))}
             </ul>
 
+            <p className="font-body text-brand-text-muted text-sm mb-8">
+              {t(`plans.${plan.key}.summary`)}
+            </p>
+
             <div className="text-center">
               <GlossyButton href="#contact" wrapperClassName="glossy-cta-card-wrapper" className={`glossy-cta-card ${plan.popular ? 'glossy-cta-gradient' : ''}`}>
-                {t('cta')}
+                {t(`plans.${plan.key}.cta`)}
               </GlossyButton>
             </div>
           </motion.div>

@@ -123,42 +123,50 @@
     "plans": {
       "presencia": {
         "name": "Presence Pack",
-        "description": "For local businesses, entrepreneurs, and brands taking their first steps online",
+        "description": "For businesses that create their own content and need ideas, planning and guidance.",
         "features": [
-          "Marketing campaign for 2 social networks",
-          "Graphic design for every post",
-          "Monthly editorial calendar",
-          "Message & comment responses",
-          "Profile optimization",
-          "Monthly results report",
-          "On-site support from our technical team"
-        ]
+          "Content strategy for Instagram and TikTok.",
+          "Monthly calendar with 8 content ideas.",
+          "4 video scripts per month.",
+          "Recommendations to improve your profiles.",
+          "One 45-minute online consultation per month."
+        ],
+        "subtitle": "Online strategy",
+        "price": "€299/month + VAT",
+        "summary": "You film, edit and publish. We help you organise your content and give it direction.",
+        "cta": "Request proposal"
       },
       "crecimiento": {
         "name": "Growth Pack",
-        "description": "For brands looking to scale with strategy, content, and advertising",
+        "description": "For businesses that want to delegate their social media with a strategy and professional content.",
         "features": [
-          "Everything in Presence Pack",
-          "Basic SEO (monthly optimization)",
-          "Personalized content strategy",
-          "Monthly strategy meeting",
-          "On-site support from our technical team"
-        ]
+          "Initial audit of your social media and business goals.",
+          "Monthly content strategy and calendar.",
+          "One on-site filming session per month of up to 3 hours.",
+          "6 edited reels per month.",
+          "4 posts or carousels and 8 stories per month.",
+          "Copywriting, scheduling and publishing on Instagram and TikTok.",
+          "Results report and a 30-minute monthly meeting."
+        ],
+        "subtitle": "Content creation and social media management",
+        "price": "€1,490/month + VAT",
+        "summary": "From ideas to publishing: we create, organise and manage your content. Quantities are the monthly total across both platforms.",
+        "cta": "Request proposal"
       },
       "dominio": {
         "name": "Total Domination Pack",
-        "description": "Full 360° service for businesses that want to dominate their sector online",
+        "description": "For businesses that need to combine content, digital presence and customer acquisition. We build your proposal with the services you need:",
         "features": [
-          "Everything in Growth Pack",
-          "Full management of all networks",
-          "Meta + Google Ads campaigns",
-          "Full SEO (technical + content)",
-          "Ongoing web design & optimization",
-          "Email marketing + sales funnels",
-          "Weekly personalized strategy",
-          "Weekly strategic meetings",
-          "On-site support from our technical team"
-        ]
+          "Social media strategy and management.",
+          "More content and filming sessions.",
+          "Web design and landing pages.",
+          "SEO.",
+          "Lead generation and sales funnels."
+        ],
+        "subtitle": "Tailored project",
+        "price": "Custom quote",
+        "summary": "Services as specified in your quote. We define the goals, scope and timeline with you to prepare a proposal tailored to your business.",
+        "cta": "Request quote"
       }
     },
     "custom": {
@@ -325,7 +333,7 @@
       },
       {
         "question": "What's the minimum budget to work with you?",
-        "answer": "Our most accessible pack starts in the €300-600/month range. For influencer campaigns, the budget varies based on content type and desired reach."
+        "answer": "Presence Pack costs €299/month + VAT and Growth Pack costs €1,490/month + VAT. Total Domination Pack is quoted according to the services you need. Collaborations with Luci Shows are quoted separately."
       },
       {
         "question": "Do you work with international brands?",
