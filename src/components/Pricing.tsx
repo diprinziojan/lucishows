@@ -58,9 +58,11 @@ export function Pricing() {
               {t(`plans.${plan.key}.subtitle`)}
             </p>
 
-            <p className="mt-2 font-heading text-2xl font-bold text-brand-text">
-              {t(`plans.${plan.key}.price`)}
-            </p>
+            {plan.key === 'dominio' && (
+              <p className="mt-2 font-heading text-2xl font-bold text-brand-text">
+                {t(`plans.${plan.key}.price`)}
+              </p>
+            )}
 
             <p className="mt-2 font-body text-brand-text-muted text-sm">
               {t(`plans.${plan.key}.description`)}
